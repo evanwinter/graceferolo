@@ -14,7 +14,7 @@ export default () => (
         <Link to="/work">Work</Link>
        </li>
       <li className="navigationItem">
-        <a href="https://google.com/" target="_blank" rel="noopener noreferrer">Newsletter</a>
+        <a href="#">Newsletter</a>
        </li>
       <li className="navigationItem">
         <Link to="/writing">Writing</Link>
