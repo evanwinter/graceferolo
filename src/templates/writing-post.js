@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
-import Layout from "../components/layout"
 import Hero from "../components/hero"
 
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -26,26 +25,24 @@ class WritingPostTemplate extends React.Component {
     const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
     return (
-      <Layout location={this.props.location}>
-        <div>
-          <Helmet title={`${node.title} | ${siteTitle}`} />
-          <Hero node={node} />
-          <div className="wrapper">
-            <h1 className="section-headline">{node.title}</h1>
-            <p>{node.intro.intro}</p>
-            <p
-              style={{
-                display: "block",
-              }}
-            >
-              {node.date}
-            </p>
-            <article>
-              {documentToReactComponents(node.body.json, options)}
-             </article>
-          </div>
+      <div>
+        <Helmet title={`${node.title} | ${siteTitle}`} />
+        <Hero node={node} />
+        <div className="wrapper">
+          <h1 className="section-headline">{node.title}</h1>
+          <p>{node.intro.intro}</p>
+          <p
+            style={{
+              display: "block",
+            }}
+          >
+            {node.date}
+          </p>
+          <article>
+            {documentToReactComponents(node.body.json, options)}
+           </article>
         </div>
-      </Layout>
+      </div>
     )
   }
 }

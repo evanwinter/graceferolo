@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import Container from "./container"
 import Navigation from "./navigation"
 
-import "../styles/index.css"
-
 class Template extends React.Component {
   render() {
     const { location, children } = this.props

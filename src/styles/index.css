@@ -48,3 +48,17 @@ a:visited {
 .hero .gatsby-image-wrapper {
 	height: 60vh;
 }
+
+.navigation {
+  display: flex;
+}
+
+.navigationItem {
+  display: inline-flex;
+  align-items: center;
+  margin: 1rem 0.75rem 1rem 0;
+}
+
+.navigationItem a {
+  color: currentColor;
+}

@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import get from "lodash/get"
 import Helmet from "react-helmet"
-import Layout from "../components/layout"
 import PostPreview from "../components/post-preview"
 
 class WritingIndex extends React.Component {
@@ -11,24 +10,22 @@ class WritingIndex extends React.Component {
     const posts = get(this, "props.data.allContentfulWritingPost.edges")
 
     return (
-      <Layout location={this.props.location}>
-        <div>
-          <Helmet title={siteTitle} />
-          <div>Writing</div>
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <PostPreview post={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+      <div>
+        <Helmet title={siteTitle} />
+        <div>Writing</div>
+        <div className="wrapper">
+          <h2 className="section-headline">Recent articles</h2>
+          <ul className="article-list">
+            {posts.map(({ node }) => {
+              return (
+                <li key={node.slug}>
+                  <PostPreview post={node} />
+                </li>
+              )
+            })}
+          </ul>
         </div>
-      </Layout>
+      </div>
     )
   }
 }
