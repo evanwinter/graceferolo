@@ -1,0 +1,58 @@
+{
+  "name": "graceferolo",
+  "description": "Grace Ferolo's portfolio site",
+  "version": "1.0.0",
+  "author": "Evan Winter <evan@evanwinter.me>",
+  "bugs": {
+    "url": "https://github.com/evanwinter/graceferolo/issues"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
+    "gatsby-background-image": "^0.8.18",
+    "gatsby-image": "^2.0.38",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.34",
+    "gatsby-source-contentful": "^2.0.48",
+    "gatsby-transformer-remark": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.1.18",
+    "intersection-observer": "^0.7.0",
+    "lodash": "^4.17.11",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "rich-text-to-react": "^1.1.0",
+    "sharp": "^0.22.0",
+    "typography": "^0.16.19"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "gatsby": "^2.3.22",
+    "prettier": "^1.17.0"
+  },
+  "homepage": "https://github.com/evanwinter/graceferolo#readme",
+  "keywords": [
+    "grace ferolo",
+    "chicago",
+    "advertising"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanwinter/graceferolo.git"
+  },
+  "scripts": {
+    "dev": "npm run develop",
+    "develop": "gatsby develop",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
+    "build": "gatsby build",
+    "start": "npm run develop",
+    "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
+  }
+}
