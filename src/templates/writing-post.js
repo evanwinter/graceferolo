@@ -4,19 +4,17 @@ import Helmet from "react-helmet"
 import get from "lodash/get"
 import Hero from "../components/hero"
 
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <p>{children}</p>
-    ),
+    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
       <img src={node.data.target.fields.file["en-US"].url} />
-    )
-  }
-};
+    ),
+  },
+}
 
 class WritingPostTemplate extends React.Component {
   render() {
@@ -40,7 +38,7 @@ class WritingPostTemplate extends React.Component {
           </p>
           <article>
             {documentToReactComponents(node.body.json, options)}
-           </article>
+          </article>
         </div>
       </div>
     )

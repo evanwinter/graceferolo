@@ -9,16 +9,16 @@ export default () => (
       </li>
       <li className="navigationItem">
         <Link to="/about">About</Link>
-       </li>
+      </li>
       <li className="navigationItem">
         <Link to="/work">Work</Link>
-       </li>
+      </li>
       <li className="navigationItem">
         <a href="#">Newsletter</a>
-       </li>
+      </li>
       <li className="navigationItem">
         <Link to="/writing">Writing</Link>
-       </li>
+      </li>
     </ul>
   </nav>
 )

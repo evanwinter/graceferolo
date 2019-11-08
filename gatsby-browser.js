@@ -11,9 +11,9 @@ const typography = new Typography({
 
 export const onClientEntry = () => {
 	if (typeof window.IntersectionObserver === `undefined`) {
-	    import(`intersection-observer`)
-	    console.log(`# IntersectionObserver is polyfilled!`)
-	  }
+		import(`intersection-observer`)
+		console.log(`# IntersectionObserver is polyfilled!`)
+	}
 
 	typography.injectStyles()
 }

@@ -21,9 +21,8 @@ const getTransitionStyles = {
 }
 
 class Transition extends React.PureComponent {
-
   scrollToTop() {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
   render() {

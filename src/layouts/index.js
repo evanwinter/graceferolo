@@ -9,9 +9,7 @@ const Layout = ({ children, location }) => {
   return (
     <Container>
       <Navigation />
-      <Transition location={location}>
-        {children}
-      </Transition>
+      <Transition location={location}>{children}</Transition>
     </Container>
   )
 }
