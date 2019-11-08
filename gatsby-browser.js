@@ -1,5 +1,7 @@
 import Typography from "typography"
 
+export const shouldUpdateScroll = () => false
+
 const typography = new Typography({
 	baseFontSize: "18px",
 	baseLineHeight: 1.666,

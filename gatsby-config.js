@@ -35,5 +35,6 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: getContentfulConfig(),
     },
+    "gatsby-plugin-offline",
   ],
 }

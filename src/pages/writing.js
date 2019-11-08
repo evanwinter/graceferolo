@@ -49,7 +49,7 @@ export const pageQuery = graphql`
           }
           date(formatString: "MMMM Do, YYYY")
           mainImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            fluid(maxWidth: 1200, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_noBase64
             }
           }
