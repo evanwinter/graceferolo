@@ -5,12 +5,14 @@
 }
 
 body {
-	font-size: 16px;
-	font-family: system-ui, sans-serif;
 	width: 100%;
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+
+	color: #333;
+	background: #f6f6f6;
 }
 
 img {
@@ -30,11 +32,17 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	color: rgba(currentColor, 0.28);
 }
 
 a:visited {
-	color: inherit;
+	color: currentColor;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
 }
 
 .hero {
@@ -50,7 +58,11 @@ a:visited {
 }
 
 .navigation {
+	position: absolute;
   display: flex;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 500ms ease;
 }
 
 .navigationItem {
@@ -61,4 +73,41 @@ a:visited {
 
 .navigationItem a {
   color: currentColor;
+}
+
+.home-layout {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	max-width: 100%;
+}
+
+.pre-big {
+	margin-left: 1rem;
+}
+
+.big {
+	line-height: 0.8;
+	font-size: 25vw;
+}
+
+.home-navigation {
+	display: flex;
+	justify-content: center;
+}
+
+.home-navigation li {
+	font-size: 3vw;
+	font-weight: 700;
+	margin: 0 0.5rem 0 0.5rem;
+}
+
+.home-navigation li:not(:last-child)::after {
+	margin-left: 1rem;
+	content: "-";
+}
+
+.navigation.fade-out {
+	opacity: 0;
 }

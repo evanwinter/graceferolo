@@ -1,10 +1,11 @@
 import React from "react"
+import anime from "animejs"
 import {
   TransitionGroup,
   Transition as ReactTransition,
 } from "react-transition-group"
 
-const timeout = 250
+const timeout = 500
 const getTransitionStyles = {
   entering: {
     position: `absolute`,
@@ -25,13 +26,33 @@ class Transition extends React.PureComponent {
     window.scrollTo(0, 0)
   }
 
+  slideOut() {
+    anime({
+      targets: "main",
+      translateY: "20px",
+      easing: "easeInOutQuad",
+      duration: timeout,
+    })
+  }
+
+  slideIn() {
+    anime({
+      targets: "main",
+      translateY: "0px",
+      easing: "easeInOutQuad",
+      duration: timeout,
+    })
+  }
+
   render() {
     const { children, location } = this.props
+
     return (
       <TransitionGroup>
         <ReactTransition
           key={location.pathname}
-          onExited={this.scrollToTop}
+          onEnter={this.slideOut}
+          onExited={this.slideIn}
           timeout={{
             enter: timeout,
             exit: timeout,
