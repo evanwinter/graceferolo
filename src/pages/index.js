@@ -13,12 +13,22 @@ class RootIndex extends React.Component {
         <section className="home-layout">
           <div>
             <span className="pre-big">My name is</span>
-            <h1 className="big name"><Link to="/">GRACE</Link></h1>
+            <h1 className="big name">
+              <Link to="/">GRACE</Link>
+            </h1>
             <ul className="home-navigation">
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/work">Work</Link></li>
-              <li><a href="#">Newsletter</a></li>
-              <li><Link to="/writing">Writing</Link></li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/work">Work</Link>
+              </li>
+              <li>
+                <a href="#">Newsletter</a>
+              </li>
+              <li>
+                <Link to="/writing">Writing</Link>
+              </li>
             </ul>
           </div>
         </section>
