@@ -1,0 +1,11 @@
+.hero {
+	width: calc(100% + 4rem);
+	margin-left: -2rem;
+	margin-bottom: 2em;
+	height: 60vh;
+	overflow: hidden;
+}
+
+.hero .gatsby-image-wrapper {
+	height: 60vh;
+}

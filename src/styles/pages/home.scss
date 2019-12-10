@@ -1,0 +1,20 @@
+.site-root.home {
+  background: $lightblue;
+  color: $light;
+}
+
+.home-navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.home-navigation li {
+  font-size: 3vw;
+  font-weight: 700;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.home-navigation li:not(:last-child)::after {
+  margin-left: 1rem;
+  content: "-";
+}

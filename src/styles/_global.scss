@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  color: #333;
+  background: #f6f6f6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul[class] {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba($link-color, 0.28);
+}
+
+a:visited {
+  color: currentColor;
+}
+
+.big {
+  line-height: 0.8;
+  font-size: 25vw;
+}
+
+.embedded-asset {
+  width: 100%;
+  height: auto;
+
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+}
