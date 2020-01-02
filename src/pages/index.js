@@ -1,6 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql, Link } from "gatsby"
 import Image from "../components/image"
+import OverlayContainer from "../components/overlay-container"
+import Navigation from "../components/navigation"
 import get from "lodash/get"
 import Helmet from "react-helmet"
 
@@ -11,21 +13,12 @@ class RootIndex extends React.Component {
     const { image } = node
 
     return (
-      <div>
+      <Fragment>
         <Helmet title={siteTitle} />
         <section className="home-layout">
-          <div className="overlay-component">
-            <div className="overlay-text">
-              <h1 className="big name">
-                <Link to="/">GRACE</Link>
-              </h1>
-            </div>
-            <div className="overlay-image">
-              <Image fluid={image.fluid} />
-            </div>
-          </div>
+          <OverlayContainer image={image} />
         </section>
-      </div>
+      </Fragment>
     )
   }
 }

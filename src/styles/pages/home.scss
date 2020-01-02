@@ -1,20 +1,11 @@
 .site-root.home {
   background: $lightblue;
   color: $light;
+  min-height: 100vh;
 }
 
-.home-navigation {
+.home-layout {
+  height: 100vh;
   display: flex;
-  justify-content: center;
-}
-
-.home-navigation li {
-  font-size: 3vw;
-  font-weight: 700;
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-.home-navigation li:not(:last-child)::after {
-  margin-left: 1rem;
-  content: "-";
+  align-items: center;
 }

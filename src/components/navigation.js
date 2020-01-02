@@ -17,7 +17,13 @@ export default () => (
         <a href="#">Newsletter</a>
       </li>
       <li className="navigationItem">
-        <Link to="/writing">Writing</Link>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://tinyletter.com/graceferolo"
+        >
+          Writing
+        </a>
       </li>
     </ul>
   </nav>

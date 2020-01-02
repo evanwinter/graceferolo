@@ -35,7 +35,7 @@
     "dotenv": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
-    "gatsby": "^2.18.8",
+    "gatsby": "^2.18.17",
     "gatsby-plugin-sass": "^2.1.24",
     "prettier": "^1.17.0"
   },
