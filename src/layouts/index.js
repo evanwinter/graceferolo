@@ -11,7 +11,6 @@ const Layout = (props) => {
   return (
     <div className={`site-root ${currentPage}`}>
       <Container>
-        <Navigation />
         <Transition location={location}>
           <main>{children}</main>
         </Transition>

@@ -16,7 +16,14 @@ class RootIndex extends React.Component {
       <Fragment>
         <Helmet title={siteTitle} />
         <section className="home-layout">
-          <OverlayContainer image={image} />
+          <div className="row">
+            <div className="item">
+              <OverlayContainer text={"GRACE FEROLO"} image={image} />
+            </div>
+            <div className="item">
+              <Navigation />
+            </div>
+          </div>
         </section>
       </Fragment>
     )

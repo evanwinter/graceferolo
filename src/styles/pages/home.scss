@@ -7,5 +7,14 @@
 .home-layout {
   height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .row {
+    display: flex;
+  }
+
+  .item {
+    flex: 1;
+  }
 }

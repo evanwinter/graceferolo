@@ -2,12 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import Image from "./image"
 
-const OverlayContainer = ({ image }) => {
+const OverlayContainer = ({ image, text }) => {
   return (
     <div className="overlay-container">
       <div className="overlay-text">
         <span className="name">
-          <Link to="/">GRACE</Link>
+          {text}
         </span>
       </div>
       <div className="overlay-image">

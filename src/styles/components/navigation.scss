@@ -1,15 +1,21 @@
 .navigation {
-  position: fixed;
-  top: 0;
   display: flex;
+  justify-content: center;
   opacity: 1;
   transition: opacity 500ms ease;
+}
+
+.top-navigation {
+  position: fixed;
+  top: 0;
 }
 
 .navigationItem {
   display: inline-flex;
   align-items: center;
-  margin: 1rem 0.75rem 1rem 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 1rem 3rem 1rem 0;
 }
 
 .navigationItem a {
@@ -17,5 +23,5 @@
 }
 
 .navigation.fade-out {
-	opacity: 0;
+  opacity: 0;
 }

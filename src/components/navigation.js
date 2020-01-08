@@ -5,16 +5,10 @@ export default () => (
   <nav role="navigation">
     <ul className="navigation">
       <li className="navigationItem">
-        <Link to="/">Home</Link>
+        <Link to="/about">about</Link>
       </li>
       <li className="navigationItem">
-        <Link to="/about">About</Link>
-      </li>
-      <li className="navigationItem">
-        <Link to="/work">Work</Link>
-      </li>
-      <li className="navigationItem">
-        <a href="#">Newsletter</a>
+        <Link to="/work">work</Link>
       </li>
       <li className="navigationItem">
         <a
@@ -22,8 +16,11 @@ export default () => (
           rel="noopener noreferrer"
           href="https://tinyletter.com/graceferolo"
         >
-          Writing
+          newsletter
         </a>
+      </li>
+      <li className="navigationItem">
+        <a href="/writing">writing</a>
       </li>
     </ul>
   </nav>
