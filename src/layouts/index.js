@@ -7,6 +7,7 @@ import "../styles/index.scss"
 
 const Layout = (props) => {
   const { children, location, path } = props
+  console.log(path)
   const currentPage = path === "/" ? "home" : path.split("/")[1]
   return (
     <div className={`site-root ${currentPage}`}>
