@@ -1,8 +1,10 @@
 .navigation {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 1;
   transition: opacity 500ms ease;
+
+  position: sticky;
 }
 
 .top-navigation {

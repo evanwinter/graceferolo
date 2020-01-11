@@ -19,12 +19,9 @@ const Layout = (props) => {
 
           <div className="right">
             <Navigation />
-
-            <div className="content">
-              <Transition location={location}>
-                <main>{children}</main>
-              </Transition>
-            </div>
+            <Transition location={location}>
+              <main>{children}</main>
+            </Transition>
           </div>
         </div>
       </LayoutContainer>

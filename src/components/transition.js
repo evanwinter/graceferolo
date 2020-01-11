@@ -29,7 +29,6 @@ class Transition extends React.PureComponent {
   slideOut() {
     anime({
       targets: "main",
-      // translateY: "20px",
       easing: "easeInOutQuad",
       duration: timeout,
     })
@@ -38,7 +37,6 @@ class Transition extends React.PureComponent {
   slideIn() {
     anime({
       targets: "main",
-      // translateY: "0px",
       easing: "easeInOutQuad",
       duration: timeout,
     })

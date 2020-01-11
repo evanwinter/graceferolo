@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "./image"
 import get from "lodash/get"
+import Animations from "./animations"
 
 const LayeredHero = ({ text }) => {
   const data = useStaticQuery(graphql`
@@ -23,13 +24,43 @@ const LayeredHero = ({ text }) => {
   const { node } = get(data, "allContentfulHomePage.edges[0]")
   const { image } = node
 
+  const [expanded, setExpanded] = useState(true)
+
+  const anim = new Animations()
+  const blurOptions = {
+    targets: ".overlay-image",
+    duration: 350,
+  }
+
+  const handleMouseEnter = (e) => {
+    const options = {
+      ...blurOptions,
+      blurLevel: "0.5rem",
+    }
+    anim.blur(options)
+  }
+
+  const handleMouseLeave = (e) => {
+    const options = {
+      ...blurOptions,
+      blurLevel: "0rem",
+    }
+    anim.blur(options)
+  }
+
   return (
-    <div className="LayeredHero overlay-container">
-      <div className="overlay-text">
-        <span className="name">{text}</span>
-      </div>
-      <div className="overlay-image">
-        <Image fluid={image.fluid} />
+    <div className="LayeredHero" data-expanded="true">
+      <div
+        className="overlay-container"
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
+      >
+        <div className="overlay-text">
+          <span className="name">{text}</span>
+        </div>
+        <div className="overlay-image">
+          <Image fluid={image.fluid} />
+        </div>
       </div>
     </div>
   )
