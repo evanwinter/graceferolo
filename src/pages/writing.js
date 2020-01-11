@@ -13,19 +13,15 @@ class WritingIndex extends React.Component {
     return (
       <>
         <Helmet title={"Writing - " + siteTitle} />
-        <div>Writing</div>
-        <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <PostPreview post={node} />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+        <ul className="article-list">
+          {posts.map(({ node }, index) => {
+            return (
+              <li key={index}>
+                <PostPreview post={node} />
+              </li>
+            )
+          })}
+        </ul>
       </>
     )
   }

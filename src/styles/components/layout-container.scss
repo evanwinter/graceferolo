@@ -15,24 +15,12 @@
   justify-content: space-around;
 
   .left {
-    border: 1px solid red;
-    position: fixed;
     left: 0;
-    height: 100vh;
     width: 50%;
   }
 
   .right {
-    border: 1px solid blue;
-    position: absolute;
     right: 0;
     width: 50%;
-
-    padding-top: 4rem;
-
-    nav {
-      position: fixed;
-      top: 0;
-    }
   }
 }

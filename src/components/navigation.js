@@ -1,34 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import { getPageFromPath } from "../helpers/utilities"
 
-const Navigation = () => {
-
-  const handleClick = (e) => {
-    const { target } = e
-    const page = target.innerText
-  }
-
+const Navigation = (props) => {
   return (
-    <nav role="navigation" onClick={handleClick}>
+    <nav role="navigation">
       <ul className="navigation">
         <li className="navigationItem">
-          <Link to="/about">about</Link>
+          <Link activeClassName="active" to="/about">about</Link>
         </li>
         <li className="navigationItem">
-          <Link to="/work">work</Link>
+          <Link activeClassName="active" to="/work">work</Link>
         </li>
         <li className="navigationItem">
           <a
-            href="#"
-            // target="_blank"
-            // rel="noopener noreferrer"
-            // href="https://tinyletter.com/graceferolo"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://tinyletter.com/graceferolo"
           >
             newsletter
           </a>
         </li>
         <li className="navigationItem">
-          <Link to="/writing">writing</Link>
+          <Link activeClassName="active" to="/writing">writing</Link>
         </li>
       </ul>
     </nav>

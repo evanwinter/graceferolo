@@ -22,6 +22,32 @@ $font-family-body: "Moret Book";
 $font-size-base: 16px;
 $font-size-xl: 8rem;
 
+$transition-duration-default: 350ms;
+$transition-easing-default: ease-in-out;
+$transition-default: $transition-duration-default $transition-easing-default;
+
 @mixin font-xl {
   font-size: $font-size-xl;
+}
+
+@mixin custom-underline($height, $color) {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5em;
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $color;
+    height: $height;
+    top: 100%;
+    left: 0%;
+    width: 0%;
+    transition: width $transition-default;
+  }
+  &.active {
+    &::after {
+      width: 100%;
+    }
+  }
 }

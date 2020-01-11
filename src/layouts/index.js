@@ -1,24 +1,25 @@
 import React from "react"
 import Navigation from "../components/navigation"
-import OverlayContainer from "../components/overlay-container"
+import GraceComponent from "../components/grace-component"
 import Transition from "../components/transition"
 import LayoutContainer from "../components/layout-container"
+import { getPageFromPath } from "../helpers/utilities"
 
 import "../styles/index.scss"
 
 const Layout = (props) => {
   const { children, location, path } = props
-  const currentPage = path === "/" ? "home" : path.split("/")[1]
+  const page = getPageFromPath(path)
   return (
-    <div className={`site-root ${currentPage}`}>
+    <div className={`site-root ${page}`}>
       <LayoutContainer>
         <div className="layout">
           <div className="left">
-            <OverlayContainer text={"Grace Ferolo"} />
+            <GraceComponent text={"Grace Ferolo"} />
           </div>
 
           <div className="right">
-            <Navigation />
+            <Navigation location={location} />
             <Transition location={location}>
               <main>{children}</main>
             </Transition>

@@ -1,8 +1,22 @@
-.LayeredHero {
+.GraceComponent {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 0;
+}
+
+.overlay-container {
+  z-index: 0;
+  &[data-expanded="false"] {
+    .overlay-text {
+      font-size: 6rem;
+    }
+    .overlay-image {
+      opacity: 0;
+      height: 0;
+    }
+  }
 }
 
 .overlay-text {
@@ -16,17 +30,4 @@
 .overlay-image {
   margin-top: -6rem;
   z-index: -1;
-}
-
-.overlay-container {
-  // &[data-expanded="false"] {
-  //   border: 1px solid black;
-  //   .overlay-text {
-  //     font-size: 6rem;
-  //   }
-  //   .overlay-image {
-  //     opacity: 0;
-  //     height: 0;
-  //   }
-  // }
 }

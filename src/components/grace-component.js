@@ -4,7 +4,7 @@ import Image from "./image"
 import get from "lodash/get"
 import Animations from "./animations"
 
-const LayeredHero = ({ text }) => {
+const GraceComponent = ({ text }) => {
   const data = useStaticQuery(graphql`
     query OverlayContainerQuery {
       allContentfulHomePage(limit: 1) {
@@ -49,7 +49,7 @@ const LayeredHero = ({ text }) => {
   }
 
   return (
-    <div className="LayeredHero" data-expanded="true">
+    <div className="GraceComponent" data-expanded="true">
       <div
         className="overlay-container"
         onMouseLeave={handleMouseLeave}
@@ -66,4 +66,4 @@ const LayeredHero = ({ text }) => {
   )
 }
 
-export default LayeredHero
+export default GraceComponent
