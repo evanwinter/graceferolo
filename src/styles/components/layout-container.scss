@@ -13,7 +13,6 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  position: relative;
 
   .left {
     border: 1px solid red;
@@ -25,8 +24,15 @@
 
   .right {
     border: 1px solid blue;
-    position: fixed;
+    position: absolute;
     right: 0;
     width: 50%;
+
+    padding-top: 4rem;
+
+    nav {
+      position: fixed;
+      top: 0;
+    }
   }
 }

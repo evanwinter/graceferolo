@@ -20,7 +20,10 @@ const About = (props) => {
         purus in mollis nunc sed. Et pharetra pharetra massa massa. Cras
         tincidunt lobortis feugiat vivamus. Nulla pellentesque dignissim enim
         sit amet venenatis urna cursus eget. Blandit massa enim nec dui nunc
-        mattis enim ut. Blandit aliquam etiam erat velit scelerisque in. Ante in
+        mattis enim ut. 
+      </p>
+      <p>
+        Blandit aliquam etiam erat velit scelerisque in. Ante in
         nibh mauris cursus mattis. Sed risus ultricies tristique nulla. Sagittis
         vitae et Leo duis ut. Condimentum id venenatis a condimentum vitae
         sapien. Commodo ullamcorper a lacus vestibulum sed arcu. Egestas quis

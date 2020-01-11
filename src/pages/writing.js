@@ -7,7 +7,8 @@ import PostPreview from "../components/post-preview"
 class WritingIndex extends React.Component {
   render() {
     const siteTitle = get(this, "props.data.site.siteMetadata.title")
-    const posts = get(this, "props.data.allContentfulWritingPost.edges")
+    let posts = get(this, "props.data.allContentfulWritingPost.edges")
+    posts = [...posts, ...posts, ...posts]
 
     return (
       <>
