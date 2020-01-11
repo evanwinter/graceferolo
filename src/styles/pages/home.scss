@@ -1,20 +1,3 @@
 .site-root.home {
-  background: $lightblue;
-  color: $light;
   min-height: 100vh;
-}
-
-.home-layout {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  .row {
-    display: flex;
-  }
-
-  .item {
-    flex: 1;
-  }
 }

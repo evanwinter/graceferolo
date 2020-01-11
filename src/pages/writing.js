@@ -10,8 +10,8 @@ class WritingIndex extends React.Component {
     const posts = get(this, "props.data.allContentfulWritingPost.edges")
 
     return (
-      <div>
-        <Helmet title={siteTitle} />
+      <>
+        <Helmet title={"Writing - " + siteTitle} />
         <div>Writing</div>
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
@@ -25,7 +25,7 @@ class WritingIndex extends React.Component {
             })}
           </ul>
         </div>
-      </div>
+      </>
     )
   }
 }

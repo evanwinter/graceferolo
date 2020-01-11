@@ -1,0 +1,29 @@
+.layout-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  border: 1px solid red;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-around;
+
+  > div { border: 1px solid gray;}
+}
+
+.home-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .row {
+    display: flex;
+  }
+
+  .item {
+    flex: 1;
+  }
+}

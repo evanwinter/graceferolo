@@ -6,17 +6,16 @@
   align-items: center;
 
   .overlay-text {
-    font-weight: 700;
-    font-size: 8rem;
-    line-height: 1;
+    @include font-xl();
+    line-height: 0.8;
     z-index: 10;
     width: min-content;
     text-align: center;
   }
 
   .overlay-image {
-    margin-top: -8rem;
-    width: 400px;
+    margin-top: -6rem;
+    width: 378px;
     z-index: -1;
   }
 }

@@ -1,15 +1,26 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Helmet from "react-helmet"
+import get from "lodash/get"
 
 const About = (props) => {
+  const siteTitle = get(props, "data.site.siteMetadata.title")
   return (
-    <div>
+    <>
+      <Helmet title={"About - " + siteTitle} />
       <div>About</div>
-      <div className="wrapper">
-        <h2 className="section-headline">About me</h2>
-      </div>
-    </div>
+    </>
   )
 }
 
 export default About
+
+export const pageQuery = graphql`
+  query AboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

@@ -12,15 +12,16 @@ const Navigation = () => (
       </li>
       <li className="navigationItem">
         <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://tinyletter.com/graceferolo"
+          href="#"
+          // target="_blank"
+          // rel="noopener noreferrer"
+          // href="https://tinyletter.com/graceferolo"
         >
           newsletter
         </a>
       </li>
       <li className="navigationItem">
-        <a href="/writing">writing</a>
+        <Link to="/writing">writing</Link>
       </li>
     </ul>
   </nav>
