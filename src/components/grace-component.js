@@ -36,7 +36,7 @@ const GraceComponent = ({ text }) => {
     anim.run({ ...blurOptions, filter: `blur(0rem)` })
 
   // On page change, shrink or expand the "grace component"
-  const page = getPageFromPath(window.location.pathname)
+  const page = typeof(window) !== "undefined" && getPageFromPath(window.location.pathname)
   const minimized = ["work", "writing"].includes(page)
 
   useEffect(() => {
