@@ -36,6 +36,14 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: getContentfulConfig(),
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /icons/,
+        },
+      },
+    },
     "gatsby-plugin-offline",
   ],
 }

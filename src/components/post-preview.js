@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 const PostPreview = ({ post }) => {
   return (
-    <div>
+    <div className="PostPreview">
       <Link to={`/writing/${post.slug}`}>
         <Img alt={post.mainImage.title} fluid={post.mainImage.fluid} />
       </Link>

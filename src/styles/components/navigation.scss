@@ -1,8 +1,6 @@
 .navigation {
   display: flex;
   justify-content: flex-start;
-  opacity: 1;
-  transition: opacity 500ms ease;
 }
 
 .navigationItem {
@@ -15,8 +13,12 @@
   font-size: 1.25rem;
   color: currentColor;
   @include custom-underline(3px, currentColor);
-}
 
-.navigation.fade-out {
-  opacity: 0;
+  &:hover {
+    color: currentColor;
+  }
+
+  &.active {
+    font-weight: bold;
+  }
 }

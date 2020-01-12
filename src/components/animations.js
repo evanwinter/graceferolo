@@ -10,8 +10,17 @@ class Animations {
     }
   }
 
+  getOptions(options) {
+    return merge({}, this.defaultOptions, options)
+  }
+
+  run(options) {
+    const mergedOptions = this.getOptions(options)
+    anime(mergedOptions)
+  }
+
   blur(options) {
-    const mergedOptions = merge({}, this.defaultOptions, options)
+    const mergedOptions = this.getOptions(options)
     const { blurLevel } = mergedOptions
     anime({
       ...mergedOptions,

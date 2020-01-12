@@ -5,7 +5,7 @@ import {
   Transition as ReactTransition,
 } from "react-transition-group"
 
-const timeout = 500
+const timeout = 700
 const getTransitionStyles = {
   entering: {
     position: `absolute`,

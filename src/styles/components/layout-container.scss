@@ -1,12 +1,17 @@
+$gutter: 2rem;
+
 .layout-container {
   max-width: 1440px;
   width: 100%;
   min-height: 100vh;
-  margin: 0 auto;
   padding: 0 2rem;
+  margin: 0 auto;
+  position: relative;
 
   display: flex;
   justify-content: center;
+
+  transition: max-width $transition-default;
 }
 
 .layout {
@@ -14,12 +19,50 @@
   display: flex;
 
   .left {
-    border: 1px solid red;
-    width: 50%;
+    top: 5vw;
+    width: 40%;
+    position: absolute;
+
+    transition: width $transition-default, top $transition-default;
   }
 
   .right {
-    border: 1px solid blue;
+    top: 5vw;
+    right: 2rem;
     width: 50%;
+    position: absolute;
+
+    transition: width $transition-default, top $transition-default;
+  }
+}
+
+.site-root.work,
+.site-root.writing {
+  .layout-container {
+    max-width: 100%;
+  }
+
+  .left {
+    top: 0;
+  }
+
+  .right {
+    top: 100px;
+    width: 66%;
+  }
+
+  .GraceComponent {
+    width: 175px;
+    top: 2rem;
+  }
+
+  .overlay-text {
+    font-size: 4rem;
+  }
+
+  .overlay-icon svg {
+    top: 0;
+    right: -15%;
+    opacity: 1;
   }
 }
