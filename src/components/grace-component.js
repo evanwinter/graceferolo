@@ -27,35 +27,37 @@ const GraceComponent = ({ text }) => {
   const { image } = node
 
   const anim = new Animations()
+  const DURATION = 700
 
   // Blur image on hover
-  const blurOptions = { targets: ".overlay-image", duration: 350 }
+  const blurOptions = { targets: ".overlay-image", duration: DURATION / 2 }
   const handleMouseEnter = () =>
     anim.run({ ...blurOptions, filter: `blur(0.5rem)` })
   const handleMouseLeave = () =>
     anim.run({ ...blurOptions, filter: `blur(0rem)` })
 
   // On page change, shrink or expand the "grace component"
-  const page = typeof(window) !== "undefined" && getPageFromPath(window.location.pathname)
+  const page =
+    typeof window !== "undefined" && getPageFromPath(window.location.pathname)
   const minimized = ["work", "writing"].includes(page)
 
   useEffect(() => {
-    const minimizeOptions = { targets: ".overlay-image", duration: 700 }
-    // const flowerOptions = { targets: ".overlay-image svg", duration: 700 }
+    const minimizeOptions = { targets: ".overlay-image", duration: DURATION }
+    // const flowerOptions = { targets: ".overlay-image svg", duration: DURATION }
     if (minimized) {
       anim.run({
         ...minimizeOptions,
-        opacity: [{ value: 0, duration: 350 }],
+        opacity: [{ value: 0, duration: DURATION / 2 }],
         width: "0px",
-        // maxHeight: [{ value: "0px", delay: 700 }],
+        // maxHeight: [{ value: "0px", delay: DURATION }],
       })
       // anim.run({ ...flowerOptions, top: "0%" })
     } else {
       anim.run({
         ...minimizeOptions,
-        opacity: [{ value: 1, delay: 700 }],
+        opacity: [{ value: 1, delay: DURATION }],
         width: "400px",
-        // maxHeight: [{ value: "1000px", delay: 700 }],
+        // maxHeight: [{ value: "1000px", delay: DURATION }],
       })
       // anim.run({ ...flowerOptions, top: "50%", right: "-15%" })
     }

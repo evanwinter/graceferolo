@@ -93,16 +93,22 @@ const Layout = (props) => {
   return (
     <div className={`site-root ${page}`}>
       <LayoutContainer>
+
+        <div className="top-right">
+          <Navigation location={location} />
+        </div>
+
         <div className="layout">
           <div className="left">
             <GraceComponent text={"Grace Ferolo"} />
           </div>
 
           <div className="right">
-            <Navigation location={location} />
-            <Transition location={location}>
-              <main>{children}</main>
-            </Transition>
+            <main>
+              <Transition location={location}>
+                {children}
+              </Transition>
+            </main>
           </div>
         </div>
       </LayoutContainer>

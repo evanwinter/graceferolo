@@ -10,8 +10,6 @@ $gutter: 2rem;
 
   display: flex;
   justify-content: center;
-
-  transition: max-width $transition-default;
 }
 
 .layout {
@@ -32,14 +30,22 @@ $gutter: 2rem;
     width: 50%;
     position: absolute;
 
+    display: flex;
+    flex-direction: column;
+
     transition: width $transition-default, top $transition-default;
   }
 }
 
+main {
+  margin-top: 100px;
+  transition: margin-top $transition-default;
+}
+
 .site-root.work,
 .site-root.writing {
-  .layout-container {
-    max-width: 100%;
+  main {
+    margin-top: 125px;
   }
 
   .left {
@@ -48,12 +54,16 @@ $gutter: 2rem;
 
   .right {
     top: 100px;
-    width: 66%;
+    width: calc(100% - 4rem);
   }
 
   .GraceComponent {
     width: 175px;
     top: 2rem;
+  }
+
+  .navigation {
+    top: 100px;
   }
 
   .overlay-text {

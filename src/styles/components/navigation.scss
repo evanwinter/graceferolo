@@ -1,18 +1,45 @@
+.top-right {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+
 .navigation {
+  position: absolute;
+  top: 5vw;
+  left: calc(50% - 2rem);
+  transition: top $transition-default;
+}
+
+.navigation ul {
   display: flex;
   justify-content: flex-start;
 }
 
-.navigationItem {
-  display: inline-flex;
-  align-items: center;
-  margin: 1rem 3rem 1rem 0;
+.navigation.r ul {
+  justify-content: flex-end;
+  li:first-child {
+    margin-right: 1.5rem;
+  }
+  li:last-child {
+    margin-right: 0;
+  }
 }
 
-.navigationItem a {
+.navigation li {
+  display: inline-flex;
+  align-items: center;
+  margin: 1rem 1.5rem;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.navigation li a {
   font-size: 1.25rem;
   color: currentColor;
-  @include custom-underline(3px, currentColor);
+  @include custom-underline(2px, currentColor);
 
   &:hover {
     color: currentColor;
