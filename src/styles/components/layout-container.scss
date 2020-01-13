@@ -10,6 +10,8 @@ $gutter: 2rem;
 
   display: flex;
   justify-content: center;
+
+  transition: max-width $transition-default;
 }
 
 .layout {
@@ -26,7 +28,7 @@ $gutter: 2rem;
 
   .right {
     top: 5vw;
-    right: 2rem;
+    right: 3rem;
     width: 50%;
     position: absolute;
 
@@ -44,6 +46,11 @@ main {
 
 .site-root.work,
 .site-root.writing {
+
+  .layout-container {
+    max-width: 100%;
+  }
+
   main {
     margin-top: 125px;
   }
@@ -64,6 +71,7 @@ main {
 
   .navigation {
     top: 100px;
+    left: calc(50% - 2rem);
   }
 
   .overlay-text {

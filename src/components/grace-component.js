@@ -13,7 +13,7 @@ const GraceComponent = ({ text }) => {
         edges {
           node {
             image {
-              fluid(maxWidth: 1200, resizingBehavior: SCALE) {
+              fluid(maxWidth: 400, resizingBehavior: SCALE) {
                 ...GatsbyContentfulFluid_noBase64
               }
             }
@@ -32,7 +32,7 @@ const GraceComponent = ({ text }) => {
   // Blur image on hover
   const blurOptions = { targets: ".overlay-image", duration: DURATION / 2 }
   const handleMouseEnter = () =>
-    anim.run({ ...blurOptions, filter: `blur(0.5rem)` })
+    anim.run({ ...blurOptions, filter: `blur(1rem)` })
   const handleMouseLeave = () =>
     anim.run({ ...blurOptions, filter: `blur(0rem)` })
 
@@ -42,19 +42,20 @@ const GraceComponent = ({ text }) => {
   const minimized = ["work", "writing"].includes(page)
 
   useEffect(() => {
-    const minimizeOptions = { targets: ".overlay-image", duration: DURATION }
     // const flowerOptions = { targets: ".overlay-image svg", duration: DURATION }
     if (minimized) {
       anim.run({
-        ...minimizeOptions,
-        opacity: [{ value: 0, duration: DURATION / 2 }],
+        targets: ".overlay-image",
+        duration: DURATION,
+        opacity: [{ value: 0, duration: DURATION / 3 }],
         width: "0px",
         // maxHeight: [{ value: "0px", delay: DURATION }],
       })
       // anim.run({ ...flowerOptions, top: "0%" })
     } else {
       anim.run({
-        ...minimizeOptions,
+        targets: ".overlay-image",
+        duration: DURATION,
         opacity: [{ value: 1, delay: DURATION }],
         width: "400px",
         // maxHeight: [{ value: "1000px", delay: DURATION }],

@@ -94,11 +94,12 @@ const Layout = (props) => {
     <div className={`site-root ${page}`}>
       <LayoutContainer>
 
-        <div className="top-right">
-          <Navigation location={location} />
-        </div>
-
         <div className="layout">
+
+          <div className="top-right">
+            <Navigation location={location} />
+          </div>
+
           <div className="left">
             <GraceComponent text={"Grace Ferolo"} />
           </div>

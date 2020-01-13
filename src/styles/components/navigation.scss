@@ -7,14 +7,16 @@
 
 .navigation {
   position: absolute;
+  width: 100%;
+  max-width: 550px;
   top: 5vw;
-  left: calc(50% - 2rem);
-  transition: top $transition-default;
+  left: calc(50% - 5rem);
+  transition: top $transition-default, left $transition-default;
 }
 
 .navigation ul {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .navigation.r ul {
@@ -30,7 +32,7 @@
 .navigation li {
   display: inline-flex;
   align-items: center;
-  margin: 1rem 1.5rem;
+  // margin: 1rem 3rem;
   &:first-child {
     margin-left: 0;
   }
