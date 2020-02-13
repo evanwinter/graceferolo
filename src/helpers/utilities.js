@@ -4,7 +4,7 @@
 
 const Utilities = {
 	getCurrentPage: () =>
-		typeof window !== undefined &&
+		typeof window !== "undefined" &&
 		(window.location.pathname === "/"
 			? "home"
 			: window.location.pathname.split("/")[1]),

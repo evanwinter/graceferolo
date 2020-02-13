@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
-import PostPreview from "../components/post-preview"
+import ArticlePreview from "../components/article-preview"
 
 // TODO: Get work projects instead of writing posts
 class Work extends React.Component {
@@ -18,7 +18,7 @@ class Work extends React.Component {
 					{posts.map(({ node }, index) => {
 						return (
 							<li key={index}>
-								<PostPreview post={node} />
+								<ArticlePreview post={node} />
 							</li>
 						)
 					})}

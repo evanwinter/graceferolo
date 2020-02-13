@@ -70,13 +70,13 @@ a:visited {
 }
 
 // TODO: Move elsewhere
-.PostPreview {
+.ArticlePreview {
 	.gatsby-image-wrapper {
 		max-height: 50vh;
 	}
 }
 
-.PostPreview {
+.ArticlePreview {
 	height: 50vh;
 	display: flex;
 	justify-content: space-between;
@@ -91,5 +91,34 @@ a:visited {
 
 	.preview-copy {
 		margin-left: 1rem;
+	}
+}
+
+$active-tag-color: $darkgreen;
+
+.Tag {
+
+	cursor: pointer;
+
+	&[data-active="true"] {
+		font-weight: 600;
+		span {
+			margin-left: 0.5rem;
+			padding: 0.1rem 0.25rem;
+			color: $color;
+			border: 1px solid $color;
+		}
+	}
+}
+
+.tag-list {
+	ul {
+		display: flex;
+		list-style: none;
+		a {
+			margin-right: 1rem;
+			border: 1px solid $color;
+			padding: 0.5rem;
+		}
 	}
 }

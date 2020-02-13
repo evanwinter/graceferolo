@@ -2,26 +2,23 @@ import React from "react"
 import { graphql } from "gatsby"
 import get from "lodash/get"
 import Helmet from "react-helmet"
-import PostPreview from "../components/post-preview"
+import ArticleList from "../components/article-list"
+import TagList from "../components/tag-list"
+import TagList2 from "../components/tag-list-2"
 
 class WritingIndex extends React.Component {
 	render() {
 		const siteTitle = get(this, "props.data.site.siteMetadata.title")
 		let posts = get(this, "props.data.allContentfulWritingPost.edges")
+		// TODO: remove - duplicate posts for dev
 		posts = [...posts, ...posts, ...posts]
 
 		return (
 			<>
 				<Helmet title={"Writing - " + siteTitle} />
-				<ul className="article-list">
-					{posts.map(({ node }, index) => {
-						return (
-							<li key={index}>
-								<PostPreview post={node} />
-							</li>
-						)
-					})}
-				</ul>
+				<div>
+					<TagList2 posts={posts} />
+				</div>
 			</>
 		)
 	}
@@ -53,6 +50,7 @@ export const pageQuery = graphql`
 					body {
 						json
 					}
+					tags
 				}
 			}
 		}
