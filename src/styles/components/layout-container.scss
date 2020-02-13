@@ -1,86 +1,111 @@
 $gutter: 2rem;
 
-.layout-container {
-  max-width: 1440px;
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 2rem;
-  margin: 0 auto;
-  position: relative;
+.layout-container.borders {
+  border: 1px solid red;
+  .left .GraceComponent { border: 1px solid orange; }
+  .right { border: 1px solid blue; }
+  .right main { border: 1px solid yellow; }
+  .top-right .navigation {
+    border: 1px solid green;
+  }
+}
 
-  display: flex;
-  justify-content: center;
+.layout-container {
+	max-width: 1440px;
+	width: 100%;
+	min-height: 100vh;
+	padding: 0 2rem;
+	margin: 0 auto;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
 
   transition: max-width $transition-default;
 }
 
 .layout {
-  width: 100%;
-  display: flex;
+	width: 100%;
+	display: flex;
 
-  .left {
-    top: 5vw;
-    width: 40%;
+	.left {
+		top: 5vw;
+		width: 40%;
     position: absolute;
 
-    transition: width $transition-default, top $transition-default;
-  }
+		transition: width $transition-default, top $transition-default;
+	}
 
-  .right {
-    top: 5vw;
-    right: 3rem;
-    width: 50%;
+	.right {
+		top: 5vw;
+		right: 3rem;
+		width: 50%;
     position: absolute;
 
-    display: flex;
-    flex-direction: column;
+		display: flex;
+		flex-direction: column;
 
-    transition: width $transition-default, top $transition-default;
+    transition: width $transition-default, top $transition-default, right $transition-default;
+    
+    main {
+      margin-top: 100px;
+      max-width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      width: 100%;
+      transition: margin-top $transition-default, width $transition-default, max-width $transition-default;
+    }
   }
-}
-
-main {
-  margin-top: 100px;
-  transition: margin-top $transition-default;
 }
 
 .site-root.work,
 .site-root.writing {
+	.layout-container {
+    .right {
+      right: 0rem;
+      width: 100%;
 
-  .layout-container {
-    max-width: 100%;
-  }
+      main {
+        width: 100%;
+        @include respond-to(xl) {
+          max-width: $breakpoint-lg;
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+    }
+	}
 
-  main {
-    margin-top: 125px;
-  }
+	main {
+		margin-top: 125px;
+	}
 
-  .left {
-    top: 0;
-  }
+	.left {
+		top: 0;
+	}
 
-  .right {
-    top: 100px;
-    width: calc(100% - 4rem);
-  }
+	.right {
+		top: 100px;
+		width: calc(100% - 4rem);
+	}
 
-  .GraceComponent {
-    width: 175px;
-    top: 2rem;
-  }
+	.GraceComponent {
+		width: 175px;
+		top: 2rem;
+	}
 
-  .navigation {
-    top: 100px;
-    left: calc(50% - 2rem);
-  }
+	.navigation {
+		top: 100px;
+		left: calc(50% - 2rem);
+	}
 
-  .overlay-text {
-    font-size: 4rem;
-  }
+	.overlay-text {
+		font-size: 4rem;
+	}
 
-  .overlay-icon svg {
-    top: 0;
-    right: -15%;
-    opacity: 1;
-  }
+	.overlay-icon svg {
+		top: 0;
+		right: -15%;
+		opacity: 1;
+	}
 }

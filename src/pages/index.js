@@ -4,25 +4,25 @@ import get from "lodash/get"
 import Helmet from "react-helmet"
 
 class RootIndex extends React.Component {
-  render() {
-    const siteTitle = get(this, "props.data.site.siteMetadata.title")
+	render() {
+		const siteTitle = get(this, "props.data.site.siteMetadata.title")
 
-    return (
-      <>
-        <Helmet title={siteTitle} />
-      </>
-    )
-  }
+		return (
+			<>
+				<Helmet title={siteTitle} />
+			</>
+		)
+	}
 }
 
 export default RootIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
+	query HomeQuery {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+	}
 `

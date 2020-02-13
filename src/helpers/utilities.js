@@ -2,4 +2,12 @@
  *  General utility functions
  */
 
-export const getPageFromPath = (path) => path === "/" ? "home" : path.split("/")[1]
+const Utilities = {
+	getCurrentPage: () =>
+		typeof window !== undefined &&
+		(window.location.pathname === "/"
+			? "home"
+			: window.location.pathname.split("/")[1]),
+}
+
+export default Utilities

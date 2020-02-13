@@ -2,7 +2,8 @@ import React, { useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "./image"
 import get from "lodash/get"
-import Animations from "./animations"
+import Animations from "../helpers/animations"
+import Utilities from "../helpers/utilities"
 import { getPageFromPath } from "../helpers/utilities"
 import FlowerIcon from "../../static/icons/flower.svg"
 
@@ -37,8 +38,7 @@ const GraceComponent = ({ text }) => {
     anim.run({ ...blurOptions, filter: `blur(0rem)` })
 
   // On page change, shrink or expand the "grace component"
-  const page =
-    typeof window !== "undefined" && getPageFromPath(window.location.pathname)
+  const page = Utilities.getCurrentPage()
   const minimized = ["work", "writing"].includes(page)
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const GraceComponent = ({ text }) => {
         targets: ".overlay-image",
         duration: DURATION,
         opacity: [{ value: 1, delay: DURATION }],
-        width: "400px",
+        width: "300px",
         // maxHeight: [{ value: "1000px", delay: DURATION }],
       })
       // anim.run({ ...flowerOptions, top: "50%", right: "-15%" })
