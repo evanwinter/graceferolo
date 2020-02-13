@@ -1,13 +1,19 @@
 $gutter: 2rem;
 
 .layout-container.borders {
-  border: 1px solid red;
-  .left .GraceComponent { border: 1px solid orange; }
-  .right { border: 1px solid blue; }
-  .right main { border: 1px solid yellow; }
-  .top-right .navigation {
-    border: 1px solid green;
-  }
+	border: 1px solid red;
+	.left .GraceComponent {
+		border: 1px solid orange;
+	}
+	.right {
+		border: 1px solid blue;
+	}
+	.right main {
+		border: 1px solid yellow;
+	}
+	.top-right .navigation {
+		border: 1px solid green;
+	}
 }
 
 .layout-container {
@@ -21,7 +27,7 @@ $gutter: 2rem;
 	display: flex;
 	justify-content: center;
 
-  transition: max-width $transition-default;
+	transition: max-width $transition-default;
 }
 
 .layout {
@@ -31,7 +37,7 @@ $gutter: 2rem;
 	.left {
 		top: 5vw;
 		width: 40%;
-    position: absolute;
+		position: absolute;
 
 		transition: width $transition-default, top $transition-default;
 	}
@@ -40,40 +46,42 @@ $gutter: 2rem;
 		top: 5vw;
 		right: 3rem;
 		width: 50%;
-    position: absolute;
+		position: absolute;
 
 		display: flex;
 		flex-direction: column;
 
-    transition: width $transition-default, top $transition-default, right $transition-default;
-    
-    main {
-      margin-top: 100px;
-      max-width: 100%;
-      margin-right: auto;
-      margin-left: auto;
-      width: 100%;
-      transition: margin-top $transition-default, width $transition-default, max-width $transition-default;
-    }
-  }
+		transition: width $transition-default, top $transition-default,
+			right $transition-default;
+
+		main {
+			margin-top: 100px;
+			max-width: 100%;
+			margin-right: auto;
+			margin-left: auto;
+			width: 100%;
+			transition: margin-top $transition-default, width $transition-default,
+				max-width $transition-default;
+		}
+	}
 }
 
 .site-root.work,
 .site-root.writing {
 	.layout-container {
-    .right {
-      right: 0rem;
-      width: 100%;
+		.right {
+			right: 0rem;
+			width: 100%;
 
-      main {
-        width: 100%;
-        @include respond-to(xl) {
-          max-width: $breakpoint-lg;
-          margin-right: auto;
-          margin-left: auto;
-        }
-      }
-    }
+			main {
+				width: 100%;
+				@include respond-to(xl) {
+					max-width: $breakpoint-lg;
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+		}
 	}
 
 	main {

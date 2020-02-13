@@ -1,47 +1,47 @@
 .GraceComponent {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  top: 0;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	top: 0;
 
-  transition: width $transition-default, top $transition-default;
+	transition: width $transition-default, top $transition-default;
 }
 
 .overlay-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .overlay-text {
-  @include font-xl();
-  line-height: 0.8;
-  width: min-content;
-  text-align: center;
-  margin: 0 auto;
+	@include font-xl();
+	line-height: 0.8;
+	width: min-content;
+	text-align: center;
+	margin: 0 auto;
 
-  position: relative;
-  z-index: 10;
+	position: relative;
+	z-index: 10;
 
-  transition: font-size $transition-default;
+	transition: font-size $transition-default;
 }
 
 .overlay-image {
-  width: 300px;
-  opacity: 1;
-  margin-top: -6rem;
-  overflow: hidden;
+	width: 300px;
+	opacity: 1;
+	margin-top: -6rem;
+	overflow: hidden;
 
-  position: relative;
-  z-index: 1;
+	position: relative;
+	z-index: 1;
 }
 
 .overlay-icon {
-  width: 200px;
-  position: absolute;
-  top: 70%;
-  right: 0%;
-  z-index: 10;
+	width: 200px;
+	position: absolute;
+	top: 70%;
+	right: 0%;
+	z-index: 10;
 }

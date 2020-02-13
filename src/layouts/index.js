@@ -98,7 +98,7 @@ const Layout = (props) => {
 					<div className="left">
 						<GraceComponent text={"Grace Ferolo"} />
 					</div>
-					
+
 					<div className="top-right">
 						<Navigation location={location} />
 					</div>
