@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import Tag from "./tag"
+import Tag from "./Tag"
 import TagService from "@helpers/tag-service"
 
 const TagList = ({ posts, activeTag, handleClick }) => {

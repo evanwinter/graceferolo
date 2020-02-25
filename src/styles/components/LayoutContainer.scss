@@ -1,8 +1,12 @@
-$gutter: 2rem;
-
 $navigation-height: 65px;
 
-.layout-container {
+$left-offset-top: 78px;
+$top-right-offset-top: 100px;
+$right-offset-top: 200px;
+
+$gutter: 2rem;
+
+.LayoutContainer {
 	max-width: 1440px;
 	width: 100%;
 	min-height: 100vh;
@@ -23,16 +27,15 @@ $navigation-height: 65px;
 
 	.top-right {
 		position: absolute;
-		top: 78px;
+		top: $top-right-offset-top;
 		width: 50%;
 		right: 2rem;
-		// right: 0rem;
 
 		transition: top $transition-default;
 	}
 
 	.left {
-		top: 78px;
+		top: $left-offset-top;
 		width: 50%;
 		width: 40%;
 		height: 100%;
@@ -42,13 +45,11 @@ $navigation-height: 65px;
 	}
 
 	.right {
-		top: 78px;
+		position: absolute;
+		top: $right-offset-top;
 		right: 2rem;
-		// right: 0rem;
 
 		width: 50%;
-		// width: calc(50% - 4rem);
-		position: absolute;
 
 		display: flex;
 		justify-content: center;
@@ -63,31 +64,24 @@ $navigation-height: 65px;
 }
 
 @mixin one-col-layout() {
-	.layout-container {
+	.LayoutContainer {
 		max-width: 100%;
 	}
 
+	// LayeredHero goes to top left to act as a home brand logo
 	.left {
 		top: 0;
 	}
 
+	// content column expands to full width (adjusted for padding weirdness)
 	.right {
-		top: 78px + $navigation-height * 2;
 		width: calc(100% - 4rem);
 		right: 2rem;
 	}
 
-	.top-right {
-		top: 100px;
-	}
-
-	.GraceComponent {
+	.LayeredHero {
 		width: 175px;
 		top: 2rem;
-
-		.overlay-image {
-			// opacity: 0 !important;
-		}
 
 		.overlay-text {
 			font-size: 4rem;
@@ -100,16 +94,16 @@ $navigation-height: 65px;
 		}
 	}
 
-	.navigation {
+	.Navigation {
 		// top: 100px;
 		left: calc(50% - 2rem);
 	}
 }
 
 .site-root {
-	.right {
-		top: $navigation-height * 1.5 + 78px;
-	}
+	// .right {
+	// 	top: $navigation-height * 1.5 + 78px;
+	// }
 
 	// border: 1px solid red;
 

@@ -1,19 +1,19 @@
-.navigation li {
+.Navigation li {
 	margin-bottom: 0;
 }
 
-.navigation {
+.Navigation {
 	width: 100%;
 	max-width: 550px;
 	transition: top $transition-default, left $transition-default;
 }
 
-.navigation ul {
+.Navigation ul {
 	display: flex;
 	justify-content: space-between;
 }
 
-.navigation.r ul {
+.Navigation.r ul {
 	justify-content: flex-end;
 	li:first-child {
 		margin-right: 1.5rem;
@@ -23,7 +23,7 @@
 	}
 }
 
-.navigation li {
+.Navigation li {
 	display: inline-flex;
 	align-items: center;
 	// margin: 1rem 3rem;
@@ -32,7 +32,7 @@
 	}
 }
 
-.navigation li a {
+.Navigation li a {
 	font-size: 1.25rem;
 	color: currentColor;
 	letter-spacing: 0.25px;

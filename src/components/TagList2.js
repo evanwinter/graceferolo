@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useReducer } from "react"
-import Tag from "./tag"
-import TagList from "./tag-list"
-import ArticlePreview from "./article-preview"
+
+import Tag from "./Tag"
+import TagList from "./TagList"
+import ArticlePreview from "./ArticlePreview"
+
 import TagService from "@helpers/tag-service"
 
 const TagList2 = ({ posts }) => {
@@ -46,9 +48,9 @@ const TagList2 = ({ posts }) => {
 	}, [activeTag])
 
 	return (
-		<div className="tag-list-2">
+		<div className="TagList2">
 			<TagList posts={posts} activeTag={activeTag} handleClick={handleClick} />
-			<ul className="article-list">
+			<ul className="ArticleList--list">
 				{articles.map((post, index) => {
 					return (
 						<li key={index}>

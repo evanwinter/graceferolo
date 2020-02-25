@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
+
+import TagList from "./TagList"
+import ArticlePreview from "./ArticlePreview"
+
 import TagService from "@helpers/tag-service"
-import TagList from "./tag-list"
-import ArticlePreview from "./article-preview"
 
 const ArticleList = ({ posts }) => {
 
@@ -26,7 +28,7 @@ const ArticleList = ({ posts }) => {
 
 	return (
 		<div className="ArticleList">
-			<ul className="article-list">
+			<ul className="ArticleList--list">
 				{renderPosts.map(({ node }, index) => {
 					return (
 						<li key={index}>

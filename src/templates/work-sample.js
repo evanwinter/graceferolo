@@ -2,9 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
+
 import Hero from "@components/hero"
 import OtherProjects from "@components/OtherProjects"
-import { RTR } from "@helpers/richTextRenderer"
+
+import { RTR } from "@helpers/rich-text-renderer"
 
 class WorkSampleTemplate extends React.Component {
 	render() {

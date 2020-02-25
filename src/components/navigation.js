@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Navigation = (props) => {
 	return (
-		<nav className="navigation" role="navigation">
+		<nav className="Navigation" role="navigation">
 			<ul className="navigation-links">
 				<li>
 					<Link activeClassName="active" to="/about">

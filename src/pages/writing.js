@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import get from "lodash/get"
 import Helmet from "react-helmet"
-import ArticleList from "@components/article-list"
-import TagList from "@components/tag-list"
-import TagList2 from "@components/tag-list-2"
+import get from "lodash/get"
+
+import ArticleList from "@components/ArticleList"
+import TagList from "@components/TagList"
+import TagList2 from "@components/TagList2"
 
 class WritingIndex extends React.Component {
 	render() {

@@ -6,7 +6,7 @@ import throttle from "lodash/throttle"
  */
 
 const Utilities = {
-	getCurrentPage: (depth = 1) => {
+	getCurrentPage: function(depth = 1) {
 		const windowDefined = typeof window !== "undefined"
 		if (!windowDefined) return null
 
@@ -18,7 +18,7 @@ const Utilities = {
 	},
 
 	// https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
-	useDebounce: (value, delay) => {
+	useDebounce: function(value, delay) {
 		// State and setters for debounced value
 		const [debouncedValue, setDebouncedValue] = useState(value)
 
@@ -82,7 +82,7 @@ const Utilities = {
 		return brkPnt
 	},
 
-	safeWindow: (exp) => {
+	safeWindow: function(exp) {
 		if (typeof window !== "undefined") return exp
 	},
 }

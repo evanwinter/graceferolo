@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import get from "lodash/get"
-import Image from "./image"
+
+import Image from "./Image"
+
 import Animations from "@helpers/animations"
 import Utilities from "@helpers/utilities"
 
-import FlowerIcon from "../../static/icons/flower.svg"
+import FlowerIcon from "@static/icons/flower.svg"
 
-const GraceComponent = ({ text }) => {
+const LayeredHero = ({ text }) => {
 	const data = useStaticQuery(graphql`
 		query OverlayContainerQuery {
 			allContentfulHomePage(limit: 1) {
@@ -93,7 +95,7 @@ const GraceComponent = ({ text }) => {
 	}, [minimized])
 
 	return (
-		<Link className="GraceComponent" to="/" data-minimized={minimized}>
+		<Link className="LayeredHero" to="/" data-minimized={minimized}>
 			<div
 				className="overlay-container"
 				onMouseLeave={handleMouseLeave}
@@ -112,4 +114,4 @@ const GraceComponent = ({ text }) => {
 	)
 }
 
-export default GraceComponent
+export default LayeredHero

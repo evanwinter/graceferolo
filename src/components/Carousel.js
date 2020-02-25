@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import Image from "./image"
 import BackgroundImg from "gatsby-background-image"
+
+import Image from "./Image"
 
 const Carousel = ({ items }) => {
   const [index, setIndex] = useState(0)

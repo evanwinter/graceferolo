@@ -1,7 +1,9 @@
 import React, { useEffect } from "react"
-import Navigation from "@components/navigation"
-import GraceComponent from "@components/grace-component"
-import LayoutContainer from "@components/layout-container"
+
+import Navigation from "@components/Navigation"
+import LayeredHero from "@components/LayeredHero"
+import LayoutContainer from "@components/LayoutContainer"
+
 import PageTransition from "@helpers/page-transition"
 import Animations from "@helpers/animations"
 import Utilities from "@helpers/utilities"
@@ -26,7 +28,7 @@ const Layout = (props) => {
 					</div>
 
 					<div className="left">
-						<GraceComponent text={"Grace Ferolo"} />
+						<LayeredHero text={"Grace Ferolo"} />
 					</div>
 
 					<div className="right">
