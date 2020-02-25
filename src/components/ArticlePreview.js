@@ -1,14 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Img from "gatsby-image"
+import Image from "./Image"
 
 const ArticlePreview = ({ post }) => {
 	return (
 		<div className="ArticlePreview">
 			<div className="preview-image">
 				<Link to={`/writing/${post.slug}`}>
-					<Img alt={post.mainImage.title} fluid={post.mainImage.fluid} />
+					<Image alt={post.mainImage.title} fluid={post.mainImage.fluid} />
 				</Link>
 			</div>
 			<div className="preview-copy">

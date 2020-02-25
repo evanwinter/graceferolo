@@ -50,13 +50,17 @@ const LayeredHero = ({ text }) => {
 		// true if small screen
 		const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
 
+		console.log(smallScreen)
+
 		// true if about page and small screen
 		const aboutSmallScreen = page === "about" && smallScreen
 
 		// true if target layout (where minimized component is used)
 		const isTargetPage = ["work", "writing"].includes(page)
 
-		const shouldMinimize = isTargetPage || aboutSmallScreen
+		const shouldMinimize = isTargetPage || smallScreen
+
+		console.log('should minimize', shouldMinimize)
 
 		if (shouldMinimize) {
 			console.log("Setting minimized to true")

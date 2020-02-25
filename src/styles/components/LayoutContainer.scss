@@ -100,27 +100,23 @@ $gutter: 2rem;
 	}
 }
 
-.site-root {
-	// .right {
-	// 	top: $navigation-height * 1.5 + 78px;
-	// }
+.site-root.borders {
+	border: 1px solid red;
 
-	// border: 1px solid red;
+	.top-right {
+		border: 1px solid orange;
+	}
 
-	// .top-right {
-	//   border: 1px solid orange;
-	// }
+	.left {
+		border: 1px solid blue;
+	}
 
-	// .left {
-	//   border: 1px solid blue;
-	// }
-
-	// .right {
-	//   border: 1px solid green;
-	// }
+	.right {
+		border: 1px solid green;
+	}
 }
 
-.site-root.about {
+.site-root {
 	@media (max-width: 1200px) {
 		@include one-col-layout();
 	}
