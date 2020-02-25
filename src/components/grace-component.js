@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "./image"
 import get from "lodash/get"
 import Animations from "../helpers/animations"
 import Utilities from "../helpers/utilities"
+
 import FlowerIcon from "../../static/icons/flower.svg"
 
 const GraceComponent = ({ text }) => {
@@ -23,8 +24,12 @@ const GraceComponent = ({ text }) => {
 		}
 	`)
 
+	const [minimized, setMinimized] = useState(true)
+
 	const { node } = get(data, "allContentfulHomePage.edges[0]")
 	const { image } = node
+
+	const breakpoint = Utilities.useBreakpoints()
 
 	const anim = new Animations()
 	const DURATION = 700
@@ -38,11 +43,34 @@ const GraceComponent = ({ text }) => {
 
 	// On page change, shrink or expand the "grace component"
 	const page = Utilities.getCurrentPage()
-	const minimized = ["work", "writing"].includes(page)
 
 	useEffect(() => {
+		// true if small screen
+		const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
+
+		// true if about page and small screen
+		const aboutSmallScreen = page === "about" && smallScreen
+
+		// true if target layout (where minimized component is used)
+		const isTargetPage = ["work", "writing"].includes(page)
+
+		const shouldMinimize = isTargetPage || aboutSmallScreen
+
+		if (shouldMinimize) {
+			console.log("Setting minimized to true")
+			setMinimized(true)
+		} else {
+			console.log("Setting minimized to false")
+			setMinimized(false)
+		}
+	}, [page, breakpoint])
+
+	useEffect(() => {
+		console.log("minimized changed", minimized)
+
 		// const flowerOptions = { targets: ".overlay-image svg", duration: DURATION }
 		if (minimized) {
+			console.log("running minimize animation...")
 			anim.run({
 				targets: ".overlay-image",
 				duration: DURATION,
@@ -52,11 +80,12 @@ const GraceComponent = ({ text }) => {
 			})
 			// anim.run({ ...flowerOptions, top: "0%" })
 		} else {
+			console.log("running unminimize animation...")
 			anim.run({
 				targets: ".overlay-image",
 				duration: DURATION,
 				opacity: [{ value: 1, delay: DURATION }],
-				width: "300px",
+				width: "400px",
 				// maxHeight: [{ value: "1000px", delay: DURATION }],
 			})
 			// anim.run({ ...flowerOptions, top: "50%", right: "-15%" })

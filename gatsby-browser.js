@@ -15,5 +15,9 @@ export const onClientEntry = () => {
 		console.log(`# IntersectionObserver is polyfilled!`)
 	}
 
+	if (typeof window !== "undefined") {
+		import("current-device")
+	}
+
 	typography.injectStyles()
 }

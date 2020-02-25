@@ -33,6 +33,21 @@ module.exports = {
 		"gatsby-plugin-layout",
 		"gatsby-plugin-sass",
 		{
+			resolve: `gatsby-plugin-alias-imports`,
+			options: {
+				alias: {
+					"@components": "src/components",
+					"@layouts": "src/layouts",
+					"@pages": "src/pages",
+					"@styles": "src/styles",
+					"@templates": "src/templates",
+					"@helpers": "src/helpers",
+					"@static": "static",
+				},
+				extensions: ["js"],
+			},
+		},
+		{
 			resolve: "gatsby-source-contentful",
 			options: getContentfulConfig(),
 		},

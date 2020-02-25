@@ -1,17 +1,11 @@
-.top-right {
-	z-index: 10;
-	position: absolute;
-	width: 100%;
-	display: block;
+.navigation li {
+  margin-bottom: 0;
 }
 
 .navigation {
-	position: absolute;
-	width: 100%;
-	max-width: 550px;
-	top: 5vw;
-	left: calc(50% - 5rem);
-	transition: top $transition-default, left $transition-default;
+  width: 100%;
+  max-width: 550px;
+  transition: top $transition-default, left $transition-default;
 }
 
 .navigation ul {

@@ -27,32 +27,33 @@ class WritingIndex extends React.Component {
 export default WritingIndex
 
 export const pageQuery = graphql`
-	query WritingIndexQuery {
-		site {
-			siteMetadata {
-				title
-			}
-		}
-		allContentfulWritingPost(sort: { fields: [date], order: DESC }) {
-			edges {
-				node {
-					title
-					slug
-					intro {
-						intro
-					}
-					date(formatString: "MMMM Do, YYYY")
-					mainImage {
-						fluid(maxWidth: 1200, resizingBehavior: SCALE) {
-							...GatsbyContentfulFluid_noBase64
-						}
-					}
-					body {
-						json
-					}
+  query WritingIndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allContentfulWritingPost(sort: { fields: [date], order: DESC }) {
+      edges {
+        node {
+          title
+          subtitle
+          slug
+          intro {
+            intro
+          }
+          date(formatString: "MMMM Do, YYYY")
+          mainImage {
+            fluid(maxWidth: 1200, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_noBase64
+            }
+          }
+          body {
+            json
+          }
 					tags
-				}
-			}
-		}
-	}
+        }
+      }
+    }
+  }
 `

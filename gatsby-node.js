@@ -5,11 +5,19 @@ exports.createPages = ({ graphql, actions }) => {
 	const { createPage } = actions
 
 	return new Promise((resolve, reject) => {
+		const workSample = path.resolve("./src/templates/work-sample.js")
 		const writingPost = path.resolve("./src/templates/writing-post.js")
 		resolve(
 			graphql(
 				`
 					{
+						allContentfulWorkSample {
+							edges {
+								node {
+									slug
+								}
+							}
+						}
 						allContentfulWritingPost {
 							edges {
 								node {
@@ -25,13 +33,24 @@ exports.createPages = ({ graphql, actions }) => {
 					reject(result.errors)
 				}
 
-				const posts = result.data.allContentfulWritingPost.edges
-				posts.forEach((post, index) => {
+				const workSampleItems = result.data.allContentfulWorkSample.edges
+				workSampleItems.forEach((item, index) => {
 					createPage({
-						path: `/writing/${post.node.slug}/`,
+						path: `/work/${item.node.slug}/`,
+						component: workSample,
+						context: {
+							slug: item.node.slug,
+						},
+					})
+				})
+
+				const writingPostItems = result.data.allContentfulWritingPost.edges
+				writingPostItems.forEach((item, index) => {
+					createPage({
+						path: `/writing/${item.node.slug}/`,
 						component: writingPost,
 						context: {
-							slug: post.node.slug,
+							slug: item.node.slug,
 						},
 					})
 				})

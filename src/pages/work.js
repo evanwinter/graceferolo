@@ -2,27 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
+import Carousel from "@components/Carousel"
+
 import ArticlePreview from "../components/article-preview"
 
-// TODO: Get work projects instead of writing posts
 class Work extends React.Component {
 	render() {
 		const siteTitle = get(this, "props.data.site.siteMetadata.title")
-		let posts = get(this, "props.data.allContentfulWritingPost.edges")
-		posts = [...posts, ...posts, ...posts]
+		let items = get(this, "props.data.allContentfulWorkSample.edges")
 
 		return (
 			<>
 				<Helmet title={"Work - " + siteTitle} />
-				<ul className="article-list">
-					{posts.map(({ node }, index) => {
-						return (
-							<li key={index}>
-								<ArticlePreview post={node} />
-							</li>
-						)
-					})}
-				</ul>
+				<Carousel items={items} />
 			</>
 		)
 	}
@@ -37,15 +29,15 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		allContentfulWritingPost(sort: { fields: [date], order: DESC }) {
+		allContentfulWorkSample(sort: { fields: [createdAt], order: ASC }) {
 			edges {
 				node {
 					title
+					subtitle
 					slug
 					intro {
 						intro
 					}
-					date(formatString: "MMMM Do, YYYY")
 					mainImage {
 						fluid(maxWidth: 1200, resizingBehavior: SCALE) {
 							...GatsbyContentfulFluid_noBase64

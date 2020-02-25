@@ -1,20 +1,6 @@
 $gutter: 2rem;
 
-.layout-container.borders {
-	border: 1px solid red;
-	.left .GraceComponent {
-		border: 1px solid orange;
-	}
-	.right {
-		border: 1px solid blue;
-	}
-	.right main {
-		border: 1px solid yellow;
-	}
-	.top-right .navigation {
-		border: 1px solid green;
-	}
-}
+$navigation-height: 65px;
 
 .layout-container {
 	max-width: 1440px;
@@ -34,8 +20,17 @@ $gutter: 2rem;
 	width: 100%;
 	display: flex;
 
+	.top-right {
+		position: absolute;
+		top: 78px;
+		width: 50%;
+		right: 2rem;
+
+		transition: top $transition-default;
+	}
+
 	.left {
-		top: 5vw;
+		top: 78px;
 		width: 40%;
 		position: absolute;
 
@@ -43,49 +38,22 @@ $gutter: 2rem;
 	}
 
 	.right {
-		top: 5vw;
-		right: 3rem;
+		top: 78px;
+		right: 2rem;
 		width: 50%;
 		position: absolute;
 
 		display: flex;
-		flex-direction: column;
+		justify-content: center;
 
 		transition: width $transition-default, top $transition-default,
 			right $transition-default;
-
-		main {
-			margin-top: 100px;
-			max-width: 100%;
-			margin-right: auto;
-			margin-left: auto;
-			width: 100%;
-			transition: margin-top $transition-default, width $transition-default,
-				max-width $transition-default;
-		}
 	}
 }
 
-.site-root.work,
-.site-root.writing {
+@mixin one-col-layout() {
 	.layout-container {
-		.right {
-			right: 0rem;
-			width: 100%;
-
-			main {
-				width: 100%;
-				@include respond-to(xl) {
-					max-width: $breakpoint-lg;
-					margin-right: auto;
-					margin-left: auto;
-				}
-			}
-		}
-	}
-
-	main {
-		margin-top: 125px;
+		max-width: 100%;
 	}
 
 	.left {
@@ -93,27 +61,67 @@ $gutter: 2rem;
 	}
 
 	.right {
-		top: 100px;
+		top: 78px + $navigation-height * 2;
 		width: calc(100% - 4rem);
+		right: 2rem;
+	}
+
+	.top-right {
+		top: 100px;
 	}
 
 	.GraceComponent {
 		width: 175px;
 		top: 2rem;
+
+		.overlay-image {
+			// opacity: 0 !important;
+		}
+
+		.overlay-text {
+			font-size: 4rem;
+		}
+
+		.overlay-icon svg {
+			top: 0;
+			right: -15%;
+			opacity: 1;
+		}
 	}
 
 	.navigation {
-		top: 100px;
+		// top: 100px;
 		left: calc(50% - 2rem);
 	}
+}
 
-	.overlay-text {
-		font-size: 4rem;
+.site-root {
+	.right {
+		top: $navigation-height * 1.5 + 78px;
 	}
 
-	.overlay-icon svg {
-		top: 0;
-		right: -15%;
-		opacity: 1;
+	// border: 1px solid red;
+
+	// .top-right {
+	//   border: 1px solid orange;
+	// }
+
+	// .left {
+	//   border: 1px solid blue;
+	// }
+
+	// .right {
+	//   border: 1px solid green;
+	// }
+}
+
+.site-root.about {
+	@media (max-width: 1200px) {
+		@include one-col-layout();
 	}
+}
+
+.site-root.work,
+.site-root.writing {
+	@include one-col-layout();
 }

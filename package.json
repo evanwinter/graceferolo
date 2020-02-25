@@ -10,8 +10,10 @@
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^13.4.0",
     "animejs": "^3.1.0",
+    "current-device": "^0.10.0",
     "gatsby-background-image": "^0.8.18",
     "gatsby-image": "^2.0.38",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-layout": "^1.1.13",
     "gatsby-plugin-offline": "^3.0.18",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -26,12 +28,15 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-slick": "^0.25.2",
     "react-transition-group": "^4.3.0",
     "rich-text-to-react": "^1.1.0",
     "sharp": "^0.22.0",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "use-breakpoint": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "babel-eslint": "^10.0.1",
     "dotenv": "^8.0.0",
     "eslint": "^5.16.0",

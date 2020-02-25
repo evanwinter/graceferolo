@@ -3,37 +3,11 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
 import Hero from "../components/hero"
-
-import { BLOCKS } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-
-const options = {
-	renderNode: {
-		[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-		[BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-			const file = get(node, "data.target.fields.file")
-			if (file["en-US"].contentType == "image/webp") {
-				return <img src={file["en-US"].url} />
-			} else if (file["en-US"].contentType == "video/mp4") {
-				return (
-					<div className="embedded-asset">
-						<video controls>
-							<source src={file["en-US"].url} type="video/mp4" />
-							<p>Your browser doesnt support HTML5 video.</p>
-						</video>
-					</div>
-				)
-			} else {
-				return <div>An error occurred displaying this image.</div>
-			}
-		},
-	},
-}
+import { RTR } from "../helpers/richTextRenderer"
 
 class WritingPostTemplate extends React.Component {
 	render() {
-		const [post] = get(this.props, "data.allContentfulWritingPost.edges")
-		const { node } = post
+		const node = get(this.props, "data.contentfulWritingPost")
 		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
 		return (
@@ -49,9 +23,7 @@ class WritingPostTemplate extends React.Component {
 						}}>
 						{node.date}
 					</p>
-					<article>
-						{documentToReactComponents(node.body.json, options)}
-					</article>
+					<article>{RTR(node.body.json)}</article>
 				</div>
 			</div>
 		)
@@ -67,23 +39,20 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		allContentfulWritingPost(filter: { slug: { eq: $slug } }) {
-			edges {
-				node {
-					title
-					intro {
-						intro
-					}
-					date(formatString: "MMMM Do, YYYY")
-					mainImage {
-						fluid(maxWidth: 1180, background: "rgb:000000") {
-							...GatsbyContentfulFluid_noBase64
-						}
-					}
-					body {
-						json
-					}
+		contentfulWritingPost(slug: { eq: $slug }) {
+			title
+			subtitle
+			intro {
+				intro
+			}
+			date(formatString: "MMMM Do, YYYY")
+			mainImage {
+				fluid(maxWidth: 1180, background: "rgb:000000") {
+					...GatsbyContentfulFluid_noBase64
 				}
+			}
+			body {
+				json
 			}
 		}
 	}

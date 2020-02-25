@@ -13,6 +13,8 @@ body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
+	position: relative;
 
 	color: $color;
 	background: $background;
@@ -97,7 +99,6 @@ a:visited {
 $active-tag-color: $darkgreen;
 
 .Tag {
-
 	cursor: pointer;
 
 	&[data-active="true"] {
@@ -121,4 +122,8 @@ $active-tag-color: $darkgreen;
 			padding: 0.5rem;
 		}
 	}
+}
+
+.anim.ease-in {
+	opacity: 0;
 }
