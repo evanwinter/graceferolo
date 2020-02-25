@@ -44,7 +44,7 @@ module.exports = {
 					"@helpers": "src/helpers",
 					"@static": "static",
 				},
-				extensions: ["js"],
+				extensions: ["js", "scss"],
 			},
 		},
 		{
