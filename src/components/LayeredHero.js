@@ -10,6 +10,7 @@ import Utilities from "@helpers/utilities"
 import FlowerIcon from "@static/icons/flower.svg"
 
 const LayeredHero = ({ text }) => {
+	// Query Home page image data from Contentful
 	const data = useStaticQuery(graphql`
 		query OverlayContainerQuery {
 			allContentfulHomePage(limit: 1) {
@@ -26,84 +27,72 @@ const LayeredHero = ({ text }) => {
 		}
 	`)
 
-	const [minimized, setMinimized] = useState(true)
+	const { image } = get(data, "allContentfulHomePage.edges[0].node") // Extract image
+	const [minimized, setMinimized] = useState(true) // Local 'minimized' state
+	const breakpoint = Utilities.useBreakpoints() // Current breakpoint
+	const page = Utilities.getCurrentPage() // Current URL slug
 
-	const { node } = get(data, "allContentfulHomePage.edges[0]")
-	const { image } = node
-
-	const breakpoint = Utilities.useBreakpoints()
-
+	// Animations helper
 	const anim = new Animations()
-	const DURATION = 700
+	const duration = 700
 
 	// Blur image on hover
-	const blurOptions = { targets: ".overlay-image", duration: DURATION / 2 }
-	const addBlurOptions = { ...blurOptions, filter: `blur(1rem)` }
+	const blurOptions = { targets: ".overlay-image", duration: duration / 2 }
+	const addBlurOptions = { ...blurOptions, filter: `blur(0.5rem)` }
 	const removeBlurOptions = { ...blurOptions, filter: `blur(0rem)` }
-	const handleMouseEnter = () => anim.run(addBlurOptions)
-	const handleMouseLeave = () => anim.run(removeBlurOptions)
+	const addBlur = () => anim.run(addBlurOptions)
+	const removeBlur = () => anim.run(removeBlurOptions)
 
-	// On page change, shrink or expand the "grace component"
-	const page = Utilities.getCurrentPage()
-
+	// Fade hero image in/out when 'minimized' state changes
 	useEffect(() => {
-		// true if small screen
-		const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
-
-		console.log(smallScreen)
-
-		// true if about page and small screen
-		const aboutSmallScreen = page === "about" && smallScreen
-
-		// true if target layout (where minimized component is used)
-		const isTargetPage = ["work", "writing"].includes(page)
-
-		const shouldMinimize = isTargetPage || smallScreen
-
-		console.log('should minimize', shouldMinimize)
-
-		if (shouldMinimize) {
-			console.log("Setting minimized to true")
-			setMinimized(true)
-		} else {
-			console.log("Setting minimized to false")
-			setMinimized(false)
-		}
-	}, [page, breakpoint])
-
-	useEffect(() => {
-		console.log("minimized changed", minimized)
-
-		// const flowerOptions = { targets: ".overlay-image svg", duration: DURATION }
-		if (minimized) {
-			console.log("running minimize animation...")
-			anim.run({
-				targets: ".overlay-image",
-				duration: DURATION,
-				opacity: [{ value: 0, duration: DURATION / 3 }],
-				width: "0px",
-				// maxHeight: [{ value: "0px", delay: DURATION }],
-			})
-			// anim.run({ ...flowerOptions, top: "0%" })
-		} else {
-			console.log("running unminimize animation...")
-			anim.run({
-				targets: ".overlay-image",
-				duration: DURATION,
-				opacity: [{ value: 1, delay: DURATION }],
+		const handleMinimizeChange = (minimized) => {
+			const imageFadeOptions = { targets: ".overlay-image", duration: duration }
+			const imageFadeInOptions = {
+				...imageFadeOptions,
+				opacity: [{ value: 1, delay: duration }],
 				width: "400px",
-				// maxHeight: [{ value: "1000px", delay: DURATION }],
-			})
-			// anim.run({ ...flowerOptions, top: "50%", right: "-15%" })
+			}
+			const imageFadeOutOptions = {
+				...imageFadeOptions,
+				opacity: [{ value: 0, duration: duration / 3 }],
+				width: "0px",
+			}
+
+			// const flowerOptions = { targets: ".overlay-image svg", duration: DURATION }
+			if (minimized) {
+				anim.run(imageFadeOutOptions)
+				// anim.run({ ...flowerOptions, top: "0%" })
+			} else {
+				anim.run(imageFadeInOptions)
+				// anim.run({ ...flowerOptions, top: "50%", right: "-15%" })
+			}
 		}
+
+		handleMinimizeChange(minimized)
 	}, [minimized])
+
+	// Update 'minimized' state based on breakpoint changes
+	useEffect(() => {
+		const handleBreakpointChange = () => {
+			const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
+			const isTargetPage = ["work", "writing"].includes(page)
+			const shouldMinimize = isTargetPage || smallScreen
+			if (shouldMinimize) {
+				setMinimized(true)
+			} else {
+				setMinimized(false)
+			}
+		}
+
+		handleBreakpointChange()
+	}, [page, breakpoint])
 
 	return (
 		<Link className="LayeredHero" to="/" data-minimized={minimized}>
 			<div
 				className="overlay-container"
-				onMouseLeave={handleMouseLeave}
-				onMouseEnter={handleMouseEnter}>
+				onMouseEnter={addBlur}
+				onMouseLeave={removeBlur}>
 				<div className="overlay-text">
 					<span className="name">{text}</span>
 				</div>
