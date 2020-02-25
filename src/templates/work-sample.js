@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
 
-import Hero from "@components/hero"
+import Hero from "@components/Hero"
 import OtherProjects from "@components/OtherProjects"
 
 import { RTR } from "@helpers/rich-text-renderer"
