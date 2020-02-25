@@ -7,13 +7,14 @@ $right-offset-top: 200px;
 $gutter: 2rem;
 
 .LayoutContainer {
-	max-width: 1440px;
-	width: 100%;
-	min-height: 100vh;
-	padding: 0 2rem;
-	// padding: 0rem;
-	margin: 0 auto;
 	position: relative;
+
+	width: 100%;
+	max-width: 1440px;
+	min-height: 100vh;
+
+	margin: 0 auto;
+	padding: 0 2rem;
 
 	display: flex;
 	justify-content: center;
@@ -36,9 +37,7 @@ $gutter: 2rem;
 
 	.left {
 		top: $left-offset-top;
-		width: 50%;
 		width: 40%;
-		height: 100%;
 		position: absolute;
 
 		transition: width $transition-default, top $transition-default;
