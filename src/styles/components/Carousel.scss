@@ -1,40 +1,40 @@
 .Carousel {
-  min-width: 100%;
-  height: calc(100vh - 300px);
+	min-width: 100%;
+	height: calc(100vh - 300px);
 
-  &:hover {
-    .nav-left,
-    .nav-right {
-      opacity: 1;
-    }
-  }
+	&:hover {
+		.nav-left,
+		.nav-right {
+			opacity: 1;
+		}
+	}
 
-  // Mobile styles
-  @media (max-width: 600px) {
-    .Carousel--container {
-      flex-direction: column;
-      width: 100%;
-    }
+	// Mobile styles
+	@media (max-width: 600px) {
+		.Carousel--container {
+			flex-direction: column;
+			width: 100%;
+		}
 
-    .CarouselItem,
-    .CarouselItem--overlay {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
+		.CarouselItem,
+		.CarouselItem--overlay {
+			width: 100%;
+			margin-bottom: 1rem;
+		}
 
-    .Carousel--navigation {
-      display: none;
-    }
-  }
+		.Carousel--navigation {
+			display: none;
+		}
+	}
 }
 
 .Carousel--container {
-  position: absolute;
-  height: calc(100vh - 300px);
-  display: flex;
-  justify-content: flex-start;
+	position: absolute;
+	height: calc(100vh - 300px);
+	display: flex;
+	justify-content: flex-start;
 
-  transition: transform $transition-default;
+	transition: transform $transition-default;
 }
 
 $four-col: 25vw;
@@ -42,129 +42,129 @@ $three-col: 33vw;
 $two-col: 50vw;
 
 .CarouselItem {
-  width: $four-col;
-  @media (max-width: 1280px) {
-    width: $three-col;
-  }
-  @media (max-width: 1000px) {
-    width: $two-col;
-  }
-  height: calc(100vh - 300px);
-  margin-right: 1rem;
-  background: black;
+	width: $four-col;
+	@media (max-width: 1280px) {
+		width: $three-col;
+	}
+	@media (max-width: 1000px) {
+		width: $two-col;
+	}
+	height: calc(100vh - 300px);
+	margin-right: 1rem;
+	background: black;
 
-  transition: width 300ms ease;
+	transition: width 300ms ease;
 
-  &:hover {
-    .CarouselItem--image {
-      opacity: 0.3;
-    }
-    .CarouselItem--overlay {
-      opacity: 1;
-    }
-  }
+	&:hover {
+		.CarouselItem--image {
+			opacity: 0.3;
+		}
+		.CarouselItem--overlay {
+			opacity: 1;
+		}
+	}
 
-  .title {
-    font-size: 4.5rem;
-    font-weight: 400;
+	.title {
+		font-size: 4.5rem;
+		font-weight: 400;
 
-    margin-bottom: 0.25rem;
-  }
+		margin-bottom: 0.25rem;
+	}
 
-  .subtitle {
-    font-size: 3rem;
-    font-style: italic;
-    margin: 0;
-    line-height: 1;
-  }
+	.subtitle {
+		font-size: 3rem;
+		font-style: italic;
+		margin: 0;
+		line-height: 1;
+	}
 
-  &--overlay {
-    position: absolute;
-    width: $four-col;
-    @media (max-width: 1280px) {
-      width: $three-col;
-    }
-    @media (max-width: 1000px) {
-      width: $two-col;
-    }
-    height: 100%;
-    z-index: 50;
-    opacity: 0;
-    padding: 2rem;
-    color: $light;
-    cursor: pointer;
+	&--overlay {
+		position: absolute;
+		width: $four-col;
+		@media (max-width: 1280px) {
+			width: $three-col;
+		}
+		@media (max-width: 1000px) {
+			width: $two-col;
+		}
+		height: 100%;
+		z-index: 50;
+		opacity: 0;
+		padding: 2rem;
+		color: $light;
+		cursor: pointer;
 
-    transition: opacity 300ms ease, width 300ms ease;
-  }
+		transition: opacity 300ms ease, width 300ms ease;
+	}
 
-  &--image {
-    height: 100%;
-    opacity: 1;
-    transition: opacity 300ms ease;
-  }
+	&--image {
+		height: 100%;
+		opacity: 1;
+		transition: opacity 300ms ease;
+	}
 
-  .gatsby-image-wrapper {
-    height: 100%;
-  }
+	.gatsby-image-wrapper {
+		height: 100%;
+	}
 }
 
 .Carousel--navigation {
-  position: absolute;
-  width: 100%;
-  height: calc(100vh - 300px);
-  z-index: 50;
-  pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: calc(100vh - 300px);
+	z-index: 50;
+	pointer-events: none;
 
-  nav {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	nav {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-    &:hover {
-      opacity: 1;
-    }
+		&:hover {
+			opacity: 1;
+		}
 
-    .nav-left,
-    .nav-right {
-      height: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 1rem;
-      opacity: 0;
+		.nav-left,
+		.nav-right {
+			height: 100%;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 1rem;
+			opacity: 0;
 
-      transition: opacity 500ms ease;
-    }
+			transition: opacity 500ms ease;
+		}
 
-    .nav-left {
-      padding-right: 6rem;
-    }
+		.nav-left {
+			padding-right: 6rem;
+		}
 
-    .nav-right {
-      padding-left: 6rem;
-    }
-  }
+		.nav-right {
+			padding-left: 6rem;
+		}
+	}
 
-  button {
-    border: none;
-    pointer-events: all;
-    background: none;
-    cursor: pointer;
-    &#previous::after {
-      font-size: 3rem;
-      font-weight: 600;
-      color: $light;
-      text-shadow: 1px 1px 2px #666;
-      content: "<";
-    }
-    &#next::after {
-      font-size: 3rem;
-      font-weight: 600;
-      color: $light;
-      text-shadow: 1px 1px 2px #666;
-      content: ">";
-    }
-  }
+	button {
+		border: none;
+		pointer-events: all;
+		background: none;
+		cursor: pointer;
+		&#previous::after {
+			font-size: 3rem;
+			font-weight: 600;
+			color: $light;
+			text-shadow: 1px 1px 2px #666;
+			content: "<";
+		}
+		&#next::after {
+			font-size: 3rem;
+			font-weight: 600;
+			color: $light;
+			text-shadow: 1px 1px 2px #666;
+			content: ">";
+		}
+	}
 }

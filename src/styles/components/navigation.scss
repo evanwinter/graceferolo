@@ -1,11 +1,11 @@
 .navigation li {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .navigation {
-  width: 100%;
-  max-width: 550px;
-  transition: top $transition-default, left $transition-default;
+	width: 100%;
+	max-width: 550px;
+	transition: top $transition-default, left $transition-default;
 }
 
 .navigation ul {
@@ -35,6 +35,7 @@
 .navigation li a {
 	font-size: 1.25rem;
 	color: currentColor;
+	letter-spacing: 0.25px;
 	@include custom-underline(2px, currentColor);
 
 	&:hover {
@@ -42,6 +43,6 @@
 	}
 
 	&.active {
-		font-weight: bold;
+		// font-weight: bold;
 	}
 }

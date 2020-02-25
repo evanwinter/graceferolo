@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Image from "./image"
 import get from "lodash/get"
-import Animations from "../helpers/animations"
-import Utilities from "../helpers/utilities"
+import Image from "./image"
+import Animations from "@helpers/animations"
+import Utilities from "@helpers/utilities"
 
 import FlowerIcon from "../../static/icons/flower.svg"
 
@@ -36,10 +36,10 @@ const GraceComponent = ({ text }) => {
 
 	// Blur image on hover
 	const blurOptions = { targets: ".overlay-image", duration: DURATION / 2 }
-	const handleMouseEnter = () =>
-		anim.run({ ...blurOptions, filter: `blur(1rem)` })
-	const handleMouseLeave = () =>
-		anim.run({ ...blurOptions, filter: `blur(0rem)` })
+	const addBlurOptions = { ...blurOptions, filter: `blur(1rem)` }
+	const removeBlurOptions = { ...blurOptions, filter: `blur(0rem)` }
+	const handleMouseEnter = () => anim.run(addBlurOptions)
+	const handleMouseLeave = () => anim.run(removeBlurOptions)
 
 	// On page change, shrink or expand the "grace component"
 	const page = Utilities.getCurrentPage()

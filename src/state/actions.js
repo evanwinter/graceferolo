@@ -24,16 +24,16 @@ export const menuActions = {
 		lastHovered: lastHovered,
 	}),
 	hideMenu: () => ({
-		type: "HIDE_MENU"
+		type: "HIDE_MENU",
 	}),
 	showMenu: () => ({
-		type: "SHOW_MENU"
-	})
+		type: "SHOW_MENU",
+	}),
 }
 
 export const projectActions = {
 	setProjects: (projects) => ({
 		type: "SET_PROJECTS",
-		projects: projects
-	})
+		projects: projects,
+	}),
 }

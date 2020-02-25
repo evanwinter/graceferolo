@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Tag from "./tag"
-import TagService from "../helpers/tag-service"
+import TagService from "@helpers/tag-service"
 
 const TagList = ({ posts, activeTag, handleClick }) => {
 	const [tags, setTags] = useState([])
@@ -9,7 +9,7 @@ const TagList = ({ posts, activeTag, handleClick }) => {
 	if (tags.length < 1) {
 		const allTags = TagService.getTagsFromPosts(posts)
 		setTags(allTags)
-  }
+	}
 
 	// // Update url search param
 	// useEffect(() => {

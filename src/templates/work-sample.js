@@ -2,52 +2,54 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
-import Hero from "../components/hero"
-import { RTR } from "../helpers/richTextRenderer"
+import Hero from "@components/hero"
+import OtherProjects from "@components/OtherProjects"
+import { RTR } from "@helpers/richTextRenderer"
 
 class WorkSampleTemplate extends React.Component {
-  render() {
-    const node = get(this.props, "data.contentfulWorkSample")
-    const siteTitle = get(this.props, "data.site.siteMetadata.title")
+	render() {
+		const node = get(this.props, "data.contentfulWorkSample")
+		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
-    return (
-      <div>
-        <Helmet title={`${node.title} | ${siteTitle}`} />
-        <Hero node={node} />
-        <div className="wrapper">
-          <h1 className="section-title">{node.title}</h1>
-          <h1 className="section-subtitle">{node.subtitle}</h1>
-          <p>{node.intro?.intro}</p>
-          <article>{RTR(node.body.json)}</article>
-        </div>
-      </div>
-    )
-  }
+		return (
+			<div>
+				<Helmet title={`${node.title} | ${siteTitle}`} />
+				<Hero node={node} />
+				<div className="wrapper">
+					<h1 className="section-title">{node.title}</h1>
+					<h1 className="section-subtitle">{node.subtitle}</h1>
+					<p>{node.intro?.intro}</p>
+					<article>{RTR(node.body.json)}</article>
+					<OtherProjects />
+				</div>
+			</div>
+		)
+	}
 }
 
 export default WorkSampleTemplate
 
 export const pageQuery = graphql`
-  query WorkSampleBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    contentfulWorkSample(slug: { eq: $slug }) {
-      title
-      subtitle
-      intro {
-        intro
-      }
-      mainImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_noBase64
-        }
-      }
-      body {
-        json
-      }
-    }
-  }
+	query WorkSampleBySlug($slug: String!) {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+		contentfulWorkSample(slug: { eq: $slug }) {
+			title
+			subtitle
+			intro {
+				intro
+			}
+			mainImage {
+				fluid(maxWidth: 1180, background: "rgb:000000") {
+					...GatsbyContentfulFluid_noBase64
+				}
+			}
+			body {
+				json
+			}
+		}
+	}
 `

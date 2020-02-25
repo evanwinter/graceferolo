@@ -3,8 +3,7 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
 import Carousel from "@components/Carousel"
-
-import ArticlePreview from "../components/article-preview"
+import ArticlePreview from "@components/article-preview"
 
 class Work extends React.Component {
 	render() {

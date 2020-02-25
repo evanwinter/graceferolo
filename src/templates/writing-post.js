@@ -2,8 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
-import Hero from "../components/hero"
-import { RTR } from "../helpers/richTextRenderer"
+import Hero from "@components/hero"
+import { RTR } from "@helpers/richTextRenderer"
 
 class WritingPostTemplate extends React.Component {
 	render() {

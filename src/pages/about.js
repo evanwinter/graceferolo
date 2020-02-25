@@ -2,8 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
-
-import { RTR } from "../helpers/richTextRenderer"
+import { RTR } from "@helpers/richTextRenderer"
 
 const About = (props) => {
 	const siteTitle = get(props, "data.site.siteMetadata.title")

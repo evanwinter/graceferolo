@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import get from "lodash/get"
 import Helmet from "react-helmet"
+import get from "lodash/get"
 
 class RootIndex extends React.Component {
 	render() {

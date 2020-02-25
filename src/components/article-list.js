@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import TagService from "../helpers/tag-service"
+import TagService from "@helpers/tag-service"
 import TagList from "./tag-list"
 import ArticlePreview from "./article-preview"
 

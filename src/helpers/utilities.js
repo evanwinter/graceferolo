@@ -6,14 +6,14 @@ import throttle from "lodash/throttle"
  */
 
 const Utilities = {
-	getCurrentPage: () => {
+	getCurrentPage: (depth = 1) => {
 		const windowDefined = typeof window !== "undefined"
 		if (!windowDefined) return null
 
 		if (window.location.pathname === "/") {
 			return "home"
 		} else {
-			return window.location.pathname.split("/")[1]
+			return window.location.pathname.split("/")[depth]
 		}
 	},
 

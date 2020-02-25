@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useReducer } from "react"
 import Tag from "./tag"
 import TagList from "./tag-list"
-import TagService from "../helpers/tag-service"
 import ArticlePreview from "./article-preview"
+import TagService from "@helpers/tag-service"
 
 const TagList2 = ({ posts }) => {
 	const [activeTag, setActiveTag] = useState("")
 	const [articles, setArticles] = useState([])
 
 	const { search } = typeof window !== "undefined" && window.location
-	
+
 	// If no tags in state, get tags
 	if (articles.length < 1) {
 		setArticles(posts)

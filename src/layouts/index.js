@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
-import Navigation from "../components/navigation"
-import GraceComponent from "../components/grace-component"
-import LayoutContainer from "../components/layout-container"
-import PageTransition from "../helpers/page-transition"
-import Animations from "../helpers/animations"
-import Utilities from "../helpers/utilities"
+import Navigation from "@components/navigation"
+import GraceComponent from "@components/grace-component"
+import LayoutContainer from "@components/layout-container"
+import PageTransition from "@helpers/page-transition"
+import Animations from "@helpers/animations"
+import Utilities from "@helpers/utilities"
 
-import "../styles/index.scss"
+import "@styles/index.scss"
 
 const Layout = (props) => {
 	const { children, location, path } = props

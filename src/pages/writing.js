@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import get from "lodash/get"
 import Helmet from "react-helmet"
-import ArticleList from "../components/article-list"
-import TagList from "../components/tag-list"
-import TagList2 from "../components/tag-list-2"
+import ArticleList from "@components/article-list"
+import TagList from "@components/tag-list"
+import TagList2 from "@components/tag-list-2"
 
 class WritingIndex extends React.Component {
 	render() {
@@ -27,33 +27,33 @@ class WritingIndex extends React.Component {
 export default WritingIndex
 
 export const pageQuery = graphql`
-  query WritingIndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allContentfulWritingPost(sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          title
-          subtitle
-          slug
-          intro {
-            intro
-          }
-          date(formatString: "MMMM Do, YYYY")
-          mainImage {
-            fluid(maxWidth: 1200, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_noBase64
-            }
-          }
-          body {
-            json
-          }
+	query WritingIndexQuery {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+		allContentfulWritingPost(sort: { fields: [date], order: DESC }) {
+			edges {
+				node {
+					title
+					subtitle
+					slug
+					intro {
+						intro
+					}
+					date(formatString: "MMMM Do, YYYY")
+					mainImage {
+						fluid(maxWidth: 1200, resizingBehavior: SCALE) {
+							...GatsbyContentfulFluid_noBase64
+						}
+					}
+					body {
+						json
+					}
 					tags
-        }
-      }
-    }
-  }
+				}
+			}
+		}
+	}
 `

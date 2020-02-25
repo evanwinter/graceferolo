@@ -49,6 +49,10 @@ $navigation-height: 65px;
 		transition: width $transition-default, top $transition-default,
 			right $transition-default;
 	}
+
+	main {
+		width: 100%;
+	}
 }
 
 @mixin one-col-layout() {
