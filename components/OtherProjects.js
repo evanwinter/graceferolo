@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import get from "lodash/get"
+
 import Utils from "@helpers/utilities"
 
 const OtherProjects = () => {

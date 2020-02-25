@@ -4,7 +4,7 @@ import BackgroundImg from "gatsby-background-image"
 
 const Hero = ({ node }) => {
 	return (
-		<div className="hero">
+		<div className="Hero">
 			<BackgroundImg
 				alt={node.title}
 				fluid={node.mainImage.fluid}></BackgroundImg>
