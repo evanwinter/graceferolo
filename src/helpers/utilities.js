@@ -50,7 +50,7 @@ const Utilities = {
 		return debouncedValue
 	},
 
-	useBreakpoints: () => {
+	useBreakpoints: function() {
 		const getDeviceConfig = (width) => {
 			if (width < 320) {
 				return "xs"
@@ -66,15 +66,17 @@ const Utilities = {
 		}
 
 		const [brkPnt, setBrkPnt] = useState(() =>
-			getDeviceConfig(window.innerWidth),
+			getDeviceConfig(typeof window !== "undefined" && window.innerWidth),
 		)
 
 		useEffect(() => {
-			const calcInnerWidth = throttle(function() {
-				setBrkPnt(getDeviceConfig(window.innerWidth))
-			}, 200)
-			window.addEventListener("resize", calcInnerWidth)
-			return () => window.removeEventListener("resize", calcInnerWidth)
+			if (typeof window !== "undefined") {
+				const calcInnerWidth = throttle(function() {
+					setBrkPnt(getDeviceConfig(window.innerWidth))
+				}, 200)
+				window.addEventListener("resize", calcInnerWidth)
+				return () => window.removeEventListener("resize", calcInnerWidth)
+			}
 		}, [])
 
 		return brkPnt
