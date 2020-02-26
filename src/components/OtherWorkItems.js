@@ -4,9 +4,9 @@ import get from "lodash/get"
 
 import Utils from "@helpers/utilities"
 
-const OtherProjects = () => {
+const OtherWorkItems = () => {
 	const data = useStaticQuery(graphql`
-		query otherProjectsQuery {
+		query otherWorkItemsQuery {
 			allContentfulWorkSample(sort: { fields: [createdAt], order: ASC }) {
 				edges {
 					node {
@@ -46,28 +46,19 @@ const OtherProjects = () => {
 	const nextSlug = slugs[nextIndex]
 
 	return (
-		<div className="OtherProjects">
-			<nav role="navigation">
-				<Link to={`/work/${prevSlug}`} className="icon-link icon-left">
-					{/* <BackIcon /> */}
-					previous work sample
-				</Link>
-				<Link to={`/work/${nextSlug}`} className="icon-link icon-right">
-					next work sample
-					{/* <NextIcon /> */}
-				</Link>
+		<div className="OtherWorkItems">
+			<nav className="OtherWorkItems--navigation" role="navigation">
+				<Link to={`/work/${prevSlug}`}>previous</Link>
+				<Link to={`/work/${nextSlug}`}>next</Link>
 			</nav>
 
-			<div className="work-samples">
+			<div className="OtherWorkItems--items">
 				{items.map(({ node }) => (
-					<div>
-						{node.slug}
-						active: {node.slug === slug}
-					</div>
+					<div>{node.slug}</div>
 				))}
 			</div>
 		</div>
 	)
 }
 
-export default OtherProjects
+export default OtherWorkItems

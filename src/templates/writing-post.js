@@ -3,7 +3,10 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
 
+import Image from "@components/Image"
 import Hero from "@components/Hero"
+import Article from "@components/Article"
+import OtherWritingItems from "@components/OtherWritingItems"
 
 import { RTR } from "@helpers/rich-text-renderer"
 
@@ -13,20 +16,19 @@ class WritingPostTemplate extends React.Component {
 		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
 		return (
-			<div>
+			<div className="WritingPostTemplate">
 				<Helmet title={`${post.title} | ${siteTitle}`} />
-				<Hero node={post} />
 				<div className="wrapper">
-					<h1 className="section-headline">{post.title}</h1>
-					<p>{post.intro.intro}</p>
-					<p
-						style={{
-							display: "block",
-						}}>
-						{post.date}
-					</p>
-					<article>{RTR(post.body.json)}</article>
+					<div className="cols">
+						<div className="col col-left">
+							<Image fluid={post.mainImage.fluid} />
+						</div>
+						<div className="col col-right">
+							<Article item={post} />
+						</div>
+					</div>
 				</div>
+				<OtherWritingItems />
 			</div>
 		)
 	}

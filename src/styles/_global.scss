@@ -7,6 +7,7 @@
 html {
 	font-family: "Moret";
 	font-size: $font-size-base;
+	background: $background;
 }
 
 body {
@@ -14,10 +15,24 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	// overflow-y: hidden;
 	position: relative;
 
 	color: $color;
 	background: $background;
+	transition: background $transition-default;
+
+	&[data-current-page="writing"] {
+		background: $theme-dark;
+	}
+
+	&[data-current-page="work"] {
+		background: $theme-lightblue;
+	}
+
+	&[data-current-page="about"] {
+		background: $theme-green;
+	}
 }
 
 img {
@@ -55,75 +70,20 @@ a:visited {
 	color: currentColor;
 }
 
-.embedded-asset {
-	width: 100%;
-	height: auto;
-
-	video {
-		width: 100%;
-		height: auto;
-	}
-}
-
-.responsive-image {
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-// TODO: Move elsewhere
-.ArticlePreview {
-	.gatsby-image-wrapper {
-		max-height: 50vh;
-	}
-}
-
-.ArticlePreview {
-	height: 50vh;
-	display: flex;
-	justify-content: space-between;
-
-	> * {
-		flex: 1;
-	}
-
-	.preview-image {
-		margin-right: 1rem;
-	}
-
-	.preview-copy {
-		margin-left: 1rem;
-	}
-}
-
-$active-tag-color: $darkgreen;
-
-.Tag {
-	cursor: pointer;
-
-	&[data-active="true"] {
-		font-weight: 600;
-		span {
-			margin-left: 0.5rem;
-			padding: 0.1rem 0.25rem;
-			color: $color;
-			border: 1px solid $color;
-		}
-	}
-}
-
-.TagList {
-	ul {
+.WritingPostTemplate {
+	.cols {
 		display: flex;
-		list-style: none;
-		a {
-			margin-right: 1rem;
-			border: 1px solid $color;
-			padding: 0.5rem;
+	}
+
+	.col {
+		flex: 1;
+
+		margin: 0 1rem;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
 		}
 	}
-}
-
-.anim.ease-in {
-	opacity: 0;
 }

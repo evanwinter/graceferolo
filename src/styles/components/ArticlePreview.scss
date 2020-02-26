@@ -1,0 +1,23 @@
+.ArticlePreview {
+	.gatsby-image-wrapper {
+		max-height: 50vh;
+	}
+}
+
+.ArticlePreview {
+	height: 50vh;
+	display: flex;
+	justify-content: space-between;
+
+	> * {
+		flex: 1;
+	}
+
+	.preview-image {
+		margin-right: 1rem;
+	}
+
+	.preview-copy {
+		margin-left: 1rem;
+	}
+}

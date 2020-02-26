@@ -32,7 +32,7 @@ class Animations {
 		anime({
 			...mergedOptions,
 			opacity: 1,
-			targets: ".anim.ease-in",
+			targets: ".anim.init-fade-in",
 			delay: 750,
 		})
 	}

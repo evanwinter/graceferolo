@@ -1,0 +1,46 @@
+.OtherWritingItems {
+	margin: 3rem 0;
+
+	&--navigation {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem 0;
+	}
+
+	&--items {
+		display: flex;
+		justify-content: flex-start;
+	}
+}
+
+.WritingItemPreview {
+	flex-basis: 25%;
+
+	.gatsby-image-wrapper {
+		height: 180px;
+  }
+  
+  &[data-active="true"] {
+    opacity: 0.5;
+  }
+
+	&:not(:first-child) {
+		margin-left: 1rem;
+  }
+
+  &--copy {
+    margin-top: 1.5rem;
+  }
+  
+  &--title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+  }
+
+  &--subtitle {
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+}

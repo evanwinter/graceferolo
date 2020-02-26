@@ -1,0 +1,11 @@
+.TagList {
+	ul {
+		display: flex;
+		list-style: none;
+		a {
+			margin-right: 1rem;
+			border: 1px solid $color;
+			padding: 0.5rem;
+		}
+	}
+}

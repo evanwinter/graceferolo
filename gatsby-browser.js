@@ -1,4 +1,5 @@
 import Typography from "typography"
+import "core-js"
 
 export const shouldUpdateScroll = () => false
 

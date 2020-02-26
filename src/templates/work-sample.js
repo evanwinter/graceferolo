@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import get from "lodash/get"
 
 import Hero from "@components/Hero"
-import OtherProjects from "@components/OtherProjects"
+import OtherWorkItems from "@components/OtherWorkItems"
 
 import { RTR } from "@helpers/rich-text-renderer"
 
@@ -22,7 +22,7 @@ class WorkSampleTemplate extends React.Component {
 					<h1 className="section-subtitle">{node.subtitle}</h1>
 					<p>{node.intro?.intro}</p>
 					<article>{RTR(node.body.json)}</article>
-					<OtherProjects />
+					<OtherWorkItems />
 				</div>
 			</div>
 		)

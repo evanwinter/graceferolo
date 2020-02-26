@@ -3,6 +3,16 @@
 	"description": "Grace Ferolo's portfolio website.",
 	"version": "1.0.0",
 	"author": "Evan Winter <evan@evanwinter.me>",
+	"scripts": {
+		"dev": "npm run develop",
+		"develop": "gatsby develop",
+		"lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --trailing-comma es5 --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
+		"build": "gatsby build",
+		"start": "npm run develop",
+		"fresh-start": "gatsby clean && npm start"
+	},
 	"bugs": {
 		"url": "https://github.com/evanwinter/graceferolo/issues"
 	},
@@ -57,14 +67,5 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/evanwinter/graceferolo.git"
-	},
-	"scripts": {
-		"dev": "npm run develop",
-		"develop": "gatsby develop",
-		"lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"format": "prettier --trailing-comma es5 --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
-		"build": "gatsby build",
-		"start": "npm run develop"
 	}
 }

@@ -14,6 +14,8 @@ const Layout = (props) => {
 	const { children, location, path } = props
 	const page = Utilities.getCurrentPage()
 
+	if (page) document.querySelector("body").dataset.currentPage = page
+
 	useEffect(() => {
 		const anim = new Animations()
 		anim.initFadeIn()
@@ -22,16 +24,16 @@ const Layout = (props) => {
 	return (
 		<div className={`site-root ${page}`}>
 			<LayoutContainer>
-				<div className="layout anim ease-in">
-					<div className="top-right">
+				<div className="Layout anim init-fade-in">
+					<div className="Layout--top-right">
 						<Navigation location={location} />
 					</div>
 
-					<div className="left">
+					<div className="Layout--left">
 						<LayeredHero text={"Grace Ferolo"} />
 					</div>
 
-					<div className="right">
+					<div className="Layout--right">
 						<main>
 							<PageTransition location={location}>{children}</PageTransition>
 						</main>

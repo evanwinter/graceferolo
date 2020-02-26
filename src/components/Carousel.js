@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
-import BackgroundImg from "gatsby-background-image"
+
+import CarouselItem from "./CarouselItem"
 
 const Carousel = ({ items }) => {
 	const [index, setIndex] = useState(0)
@@ -43,22 +43,6 @@ const Carousel = ({ items }) => {
 				})}
 			</div>
 		</div>
-	)
-}
-
-const CarouselItem = ({ item }) => {
-	return (
-		<Link className="CarouselItem" to={`/work/${item.slug}`}>
-			<div className="CarouselItem--overlay">
-				<h3 className="title">{item.title}</h3>
-				<p className="subtitle">{item.subtitle}</p>
-			</div>
-			<div className="CarouselItem--image">
-				<BackgroundImg
-					alt={item.title}
-					fluid={item.mainImage.fluid}></BackgroundImg>
-			</div>
-		</Link>
 	)
 }
 

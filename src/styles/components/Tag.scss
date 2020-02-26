@@ -1,0 +1,13 @@
+.Tag {
+	cursor: pointer;
+
+	&[data-active="true"] {
+		font-weight: 600;
+		span {
+			margin-left: 0.5rem;
+			padding: 0.1rem 0.25rem;
+			color: $color;
+			border: 1px solid $color;
+		}
+	}
+}

@@ -1,7 +1,7 @@
 $navigation-height: 65px;
 
 $left-offset-top: 78px;
-$top-right-offset-top: 100px;
+$top-right-offset-top: 112px;
 $right-offset-top: 200px;
 
 $gutter: 2rem;
@@ -19,42 +19,53 @@ $gutter: 2rem;
 	display: flex;
 	justify-content: center;
 
-	transition: max-width $transition-default;
+	transition: width $transition-default, top $transition-default,
+		left $transition-default, right $transition-default,
+		max-width $transition-default;
 }
 
-.layout {
+.Layout {
 	width: 100%;
 	display: flex;
+	position: relative;
 
-	.top-right {
+	transition: width $transition-default, top $transition-default,
+		left $transition-default, right $transition-default;
+
+	.Layout--left {
+		top: $left-offset-top;
+		width: 50%;
+		position: absolute;
+
+		transition: width $transition-default, top $transition-default,
+			left $transition-default, right $transition-default;
+	}
+
+	.Layout--top-right {
+		border: 1px solid white;
 		position: absolute;
 		top: $top-right-offset-top;
-		width: 50%;
-		right: 2rem;
 
-		transition: top $transition-default;
-	}
-
-	.left {
-		top: $left-offset-top;
 		width: 40%;
-		position: absolute;
+		left: 50%;
 
-		transition: width $transition-default, top $transition-default;
+		transition: width $transition-default, top $transition-default,
+			left $transition-default, right $transition-default;
 	}
 
-	.right {
+	.Layout--right {
 		position: absolute;
 		top: $right-offset-top;
-		right: 2rem;
 
-		width: 50%;
+		left: 50%;
+
+		width: 55%;
 
 		display: flex;
 		justify-content: center;
 
 		transition: width $transition-default, top $transition-default,
-			right $transition-default;
+			left $transition-default, right $transition-default;
 	}
 
 	main {
@@ -63,19 +74,24 @@ $gutter: 2rem;
 }
 
 @mixin one-col-layout() {
+	// Layout container goes to full width
 	.LayoutContainer {
 		max-width: 100%;
 	}
 
-	// LayeredHero goes to top left to act as a home brand logo
-	.left {
-		top: 0;
+	.Layout--top-right {
+		width: 40%;
 	}
 
-	// content column expands to full width (adjusted for padding weirdness)
-	.right {
-		width: calc(100% - 4rem);
-		right: 2rem;
+	// Main content column expands to full width (adjusted for padding weirdness)
+	.Layout--right {
+		left: 0;
+		width: 100%;
+	}
+
+	// 'LayeredHero' component goes to top left to act as a home brand logo
+	.Layout--left {
+		top: 0;
 	}
 
 	.LayeredHero {
@@ -92,36 +108,34 @@ $gutter: 2rem;
 			opacity: 1;
 		}
 	}
-
-	.Navigation {
-		// top: 100px;
-		left: calc(50% - 2rem);
-	}
 }
 
-.site-root.borders {
-	border: 1px solid red;
-
-	.top-right {
-		border: 1px solid orange;
-	}
-
-	.left {
-		border: 1px solid blue;
-	}
-
-	.right {
-		border: 1px solid green;
-	}
-}
-
+// All pages go to one-col layout on smaller screens
 .site-root {
 	@media (max-width: 1200px) {
 		@include one-col-layout();
 	}
 }
 
+// Work and Writing pages go to one-col layout at any screen size
 .site-root.work,
 .site-root.writing {
 	@include one-col-layout();
+}
+
+// (For debugging) Show layout borders
+.site-root.borders {
+	border: 1px solid red;
+
+	.Layout--top-right {
+		border: 1px solid orange;
+	}
+
+	.Layout--left {
+		border: 1px solid blue;
+	}
+
+	.Layout--right {
+		border: 1px solid green;
+	}
 }
