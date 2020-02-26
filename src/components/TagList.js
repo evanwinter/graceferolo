@@ -30,7 +30,7 @@ const TagList = ({ posts, activeTag, handleClick }) => {
 	// }, [window.location.search])
 
 	return (
-		<div className="tag-list">
+		<div className="TagList">
 			<ul onClick={handleClick}>
 				{tags.map((tag) => (
 					<li key={tag}>

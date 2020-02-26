@@ -9,23 +9,23 @@ import { RTR } from "@helpers/rich-text-renderer"
 
 class WritingPostTemplate extends React.Component {
 	render() {
-		const node = get(this.props, "data.contentfulWritingPost")
+		const post = get(this.props, "data.contentfulWritingPost")
 		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
 		return (
 			<div>
-				<Helmet title={`${node.title} | ${siteTitle}`} />
-				<Hero node={node} />
+				<Helmet title={`${post.title} | ${siteTitle}`} />
+				<Hero node={post} />
 				<div className="wrapper">
-					<h1 className="section-headline">{node.title}</h1>
-					<p>{node.intro.intro}</p>
+					<h1 className="section-headline">{post.title}</h1>
+					<p>{post.intro.intro}</p>
 					<p
 						style={{
 							display: "block",
 						}}>
-						{node.date}
+						{post.date}
 					</p>
-					<article>{RTR(node.body.json)}</article>
+					<article>{RTR(post.body.json)}</article>
 				</div>
 			</div>
 		)

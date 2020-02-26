@@ -9,7 +9,7 @@ import ArticlePreview from "@components/ArticlePreview"
 class Work extends React.Component {
 	render() {
 		const siteTitle = get(this, "props.data.site.siteMetadata.title")
-		let items = get(this, "props.data.allContentfulWorkSample.edges")
+		const items = get(this, "props.data.allContentfulWorkSample.edges")
 
 		return (
 			<>

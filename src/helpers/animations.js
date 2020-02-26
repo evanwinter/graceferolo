@@ -9,15 +9,24 @@ class Animations {
 		}
 	}
 
+	/**
+		Return options with fallbacks if not provided
+	*/
 	getOptions(options) {
 		return merge({}, this.defaultOptions, options)
 	}
 
+	/**
+		Run animejs function, with class-level fallback options
+	*/
 	run(options) {
 		const mergedOptions = this.getOptions(options)
 		anime(mergedOptions)
 	}
 
+	/**
+	 * Run a delayed fade-in animation
+	 */
 	initFadeIn(options) {
 		const mergedOptions = this.getOptions(options)
 		anime({
@@ -25,15 +34,6 @@ class Animations {
 			opacity: 1,
 			targets: ".anim.ease-in",
 			delay: 750,
-		})
-	}
-
-	blur(options) {
-		const mergedOptions = this.getOptions(options)
-		const { blurLevel } = mergedOptions
-		anime({
-			...mergedOptions,
-			filter: `blur(${blurLevel})`,
 		})
 	}
 }

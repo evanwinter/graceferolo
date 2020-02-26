@@ -30,6 +30,7 @@ class Transition extends React.PureComponent {
 		anime({
 			targets: "main",
 			easing: "easeInOutQuad",
+			// translateY: `3rem`,
 			duration: timeout,
 		})
 	}
@@ -38,6 +39,7 @@ class Transition extends React.PureComponent {
 		anime({
 			targets: "main",
 			easing: "easeInOutQuad",
+			// translateY: `0rem`,
 			duration: timeout,
 		})
 	}

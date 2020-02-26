@@ -4,8 +4,6 @@ import Helmet from "react-helmet"
 import get from "lodash/get"
 
 import ArticleList from "@components/ArticleList"
-import TagList from "@components/TagList"
-import TagList2 from "@components/TagList2"
 
 class WritingIndex extends React.Component {
 	render() {
@@ -18,7 +16,7 @@ class WritingIndex extends React.Component {
 			<>
 				<Helmet title={"Writing - " + siteTitle} />
 				<div>
-					<TagList2 posts={posts} />
+					<ArticleList posts={posts} />
 				</div>
 			</>
 		)
