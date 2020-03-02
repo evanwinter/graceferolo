@@ -3,33 +3,33 @@ import anime from "animejs"
 import CarouselItem from "./CarouselItem"
 import Utils from "@helpers/utilities"
 
-const anim = (max) =>
-	anime({
-		targets: ".Carousel--container",
-		translateX: max,
-		loop: false,
-		autoplay: false,
-		duration: 500,
-		easing: "linear",
-	})
+// const anim = (max) =>
+// 	anime({
+// 		targets: ".Carousel--container",
+// 		translateX: max,
+// 		loop: false,
+// 		autoplay: false,
+// 		duration: 500,
+// 		easing: "linear",
+// 	})
 
-const forwardAnimation = anime({
-	targets: ".Carousel--container",
-	// translateX: width,
-	direction: "alternate",
-	loop: false,
-	autoplay: false,
-	easing: "linear",
-})
+// const forwardAnimation = anime({
+// 	targets: ".Carousel--container",
+// 	// translateX: width,
+// 	direction: "alternate",
+// 	loop: false,
+// 	autoplay: false,
+// 	easing: "linear",
+// })
 
-const backwardAnimation = anime({
-	targets: ".Carousel--container",
-	translateX: 0,
-	direction: "alternate",
-	loop: false,
-	autoplay: false,
-	easing: "linear",
-})
+// const backwardAnimation = anime({
+// 	targets: ".Carousel--container",
+// 	translateX: 0,
+// 	direction: "alternate",
+// 	loop: false,
+// 	autoplay: false,
+// 	easing: "linear",
+// })
 
 const Carousel = ({ items }) => {
 	const [_items, setItems] = useState([])
@@ -101,15 +101,17 @@ const Carousel = ({ items }) => {
 		const base = shiftPx * index
 		// container.style.transform = `translateX(-${base}px)`
 
-		anime({
-			targets: ".Carousel--container",
-			translateX: -base,
-			duration: 500,
-			// direction: 'alternate',
-			// loop: false,
-			// autoplay: false,
-			easing: "easeOutSine",
-		})
+		if (item) {
+			anime({
+				targets: ".Carousel--container",
+				translateX: -base,
+				duration: 500,
+				// direction: 'alternate',
+				// loop: false,
+				// autoplay: false,
+				easing: "easeOutSine",
+			})
+		}
 	}, [index])
 
 	// const focusIndex = (index) => {
@@ -183,9 +185,10 @@ const Carousel = ({ items }) => {
 				</nav>
 			</div>
 			<div className="Carousel--container">
-				{_items.map(({ node }, i) => {
-					return <CarouselItem key={i} item={node} />
-				})}
+				{_items &&
+					_items.map(({ node }, i) => {
+						return <CarouselItem key={i} item={node} />
+					})}
 			</div>
 		</div>
 	)
