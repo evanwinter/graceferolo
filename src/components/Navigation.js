@@ -6,6 +6,8 @@ import Utils from "@helpers/utilities"
 const Navigation = (props) => {
 	const breakpoint = Utils.useBreakpoints()
 
+	console.log(breakpoint)
+
 	const page = Utils.getCurrentPage()
 
 	const [open, setOpen] = useState(false)

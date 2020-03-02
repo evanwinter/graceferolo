@@ -12,10 +12,12 @@ import "@styles/index.scss"
 
 const Layout = (props) => {
 	const { children, location, path } = props
-	const page = Utilities.getCurrentPage()
+	const page = Utilities.getCurrentPage() || "home"
 	const anim = new Animations()
 
-	if (page) document.querySelector("body").dataset.currentPage = page
+	useEffect(() => {
+		document.querySelector("body").dataset.currentPage = page
+	}, [page])
 
 	useEffect(() => {
 		anim.initFadeIn()
