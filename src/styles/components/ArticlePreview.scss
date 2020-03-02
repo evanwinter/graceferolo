@@ -5,19 +5,32 @@
 }
 
 .ArticlePreview {
-	height: 50vh;
+	// height: 50vh;
 	display: flex;
 	justify-content: space-between;
+
+	margin-bottom: 2rem;
 
 	> * {
 		flex: 1;
 	}
 
-	.preview-image {
+	.ArticlePreview--image {
 		margin-right: 1rem;
 	}
 
-	.preview-copy {
+	.ArticlePreview--copy {
 		margin-left: 1rem;
+	}
+}
+
+@include respond-to(md) {
+	.ArticlePreview {
+		flex-direction: column;
+		height: auto;
+
+		.ArticlePreview--image, .ArticlePreview--copy {
+			margin: 0.5rem 0;
+		}
 	}
 }

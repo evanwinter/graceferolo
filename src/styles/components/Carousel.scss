@@ -27,6 +27,14 @@ $carousel-height: calc(100vh - 240px);
 		.Carousel--navigation {
 			display: none;
 		}
+
+		.CarouselItem--overlay {
+			opacity: 1;
+		}
+
+		.CarouselItem--image {
+			opacity: 0.85;
+		}
 	}
 }
 
@@ -36,7 +44,7 @@ $carousel-height: calc(100vh - 240px);
 	display: flex;
 	justify-content: flex-start;
 
-	transition: transform $transition-default;
+	transition: transform 500ms linear;
 }
 
 .CarouselItem {
@@ -55,7 +63,9 @@ $carousel-height: calc(100vh - 240px);
 
 	&:hover {
 		.CarouselItem--image {
-			opacity: 0.3;
+			@media (min-width: 601px) {
+				opacity: 0.3;
+			}
 		}
 		.CarouselItem--overlay {
 			opacity: 1;
@@ -63,14 +73,14 @@ $carousel-height: calc(100vh - 240px);
 	}
 
 	&--title {
-		font-size: 4.5rem;
+		font-size: 3rem;
 		font-weight: 400;
 
 		margin-bottom: 0.25rem;
 	}
 
 	&--subtitle {
-		font-size: 3rem;
+		font-size: 1.5rem;
 		font-style: italic;
 		margin: 0;
 		line-height: 1;

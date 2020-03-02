@@ -2,6 +2,8 @@ import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import get from "lodash/get"
 
+import ItemPreview from "./ItemPreview"
+
 import Utils from "@helpers/utilities"
 
 const OtherWorkItems = () => {
@@ -30,10 +32,10 @@ const OtherWorkItems = () => {
 		}
 	`)
 
-	const slug = Utils.getCurrentPage(2)
+	const currentSlug = Utils.getCurrentPage(2)
 	const items = get(data, "allContentfulWorkSample.edges")
 	const slugs = items.map(({ node }) => node.slug)
-	const currentIndex = slugs.indexOf(slug)
+	const currentIndex = slugs.indexOf(currentSlug)
 
 	// Get next indices
 	const lowerBound = 0
@@ -53,8 +55,13 @@ const OtherWorkItems = () => {
 			</nav>
 
 			<div className="OtherWorkItems--items">
-				{items.map(({ node }) => (
-					<div>{node.slug}</div>
+				{items.map(({ node }, index) => (
+					<ItemPreview
+						key={index}
+						node={node}
+						path={`work/${node.slug}`}
+						active={node.slug === currentSlug}
+					/>
 				))}
 			</div>
 		</div>

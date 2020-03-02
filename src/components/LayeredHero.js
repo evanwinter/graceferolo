@@ -37,7 +37,7 @@ const LayeredHero = ({ text }) => {
 	const duration = 700
 
 	// Blur image on hover
-	const blurOptions = { targets: ".overlay-image", duration: duration / 2 }
+	const blurOptions = { targets: ".LayeredHero--image", duration: duration / 2 }
 	const addBlurOptions = { ...blurOptions, filter: `blur(0.5rem)` }
 	const removeBlurOptions = { ...blurOptions, filter: `blur(0rem)` }
 	const addBlur = () => anim.run(addBlurOptions)
@@ -46,11 +46,15 @@ const LayeredHero = ({ text }) => {
 	// Fade hero image in/out when 'minimized' state changes
 	useEffect(() => {
 		const handleMinimizeChange = (minimized) => {
-			const imageFadeOptions = { targets: ".overlay-image", duration: duration }
+			const imageFadeOptions = {
+				targets: ".LayeredHero--image",
+				easing: "easeInQuad",
+				duration: duration,
+			}
 			const imageFadeInOptions = {
 				...imageFadeOptions,
 				opacity: [{ value: 1, delay: duration }],
-				width: "400px",
+				width: "300px",
 			}
 			const imageFadeOutOptions = {
 				...imageFadeOptions,
@@ -76,7 +80,7 @@ const LayeredHero = ({ text }) => {
 		const handleBreakpointChange = () => {
 			const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
 			const isTargetPage = ["work", "writing"].includes(page)
-			const shouldMinimize = isTargetPage || smallScreen
+			const shouldMinimize = page !== "home" && (isTargetPage || smallScreen)
 			if (shouldMinimize) {
 				setMinimized(true)
 			} else {
@@ -90,13 +94,13 @@ const LayeredHero = ({ text }) => {
 	return (
 		<Link className="LayeredHero" to="/" data-minimized={minimized}>
 			<div
-				className="overlay-container"
+				className="LayeredHero--container"
 				onMouseEnter={addBlur}
 				onMouseLeave={removeBlur}>
-				<div className="overlay-text">
+				<div className="LayeredHero--text">
 					<span className="name">{text}</span>
 				</div>
-				<div className="overlay-image">
+				<div className="LayeredHero--image">
 					<Image fluid={image.fluid} />
 				</div>
 				{/* <div className="overlay-icon">

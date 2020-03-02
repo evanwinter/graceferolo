@@ -9,13 +9,13 @@
 	transition: width $transition-default, top $transition-default;
 }
 
-.overlay-container {
+.LayeredHero--container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.overlay-text {
+.LayeredHero--text {
 	@include font-xl();
 	line-height: 0.8;
 	width: min-content;
@@ -28,7 +28,7 @@
 	transition: font-size $transition-default;
 }
 
-.overlay-image {
+.LayeredHero--image {
 	width: 300px;
 	opacity: 1;
 	margin-top: -6rem;
@@ -37,10 +37,10 @@
 	position: relative;
 	z-index: 1;
 
-	// transition: opacity $transition-default;
+	transition: margin-top $transition-default;
 }
 
-.overlay-icon {
+.LayeredHero--icon {
 	width: 200px;
 	position: absolute;
 	top: 70%;

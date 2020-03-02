@@ -4,7 +4,7 @@ import merge from "lodash/merge"
 class Animations {
 	constructor() {
 		this.defaultOptions = {
-			easing: "easeInOutQuad",
+			easing: "easeInOutCubic",
 			duration: 500,
 		}
 	}

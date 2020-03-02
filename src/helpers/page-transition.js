@@ -5,7 +5,7 @@ import {
 	Transition as ReactTransition,
 } from "react-transition-group"
 
-const timeout = 700
+const timeout = 1000
 const getTransitionStyles = {
 	entering: {
 		position: `absolute`,
@@ -21,7 +21,7 @@ const getTransitionStyles = {
 	},
 }
 
-class Transition extends React.PureComponent {
+class PageTransition extends React.PureComponent {
 	scrollToTop() {
 		window.scrollTo(0, 0)
 	}
@@ -29,8 +29,8 @@ class Transition extends React.PureComponent {
 	slideOut() {
 		anime({
 			targets: "main",
-			easing: "easeInOutQuad",
-			// translateY: `3rem`,
+			easing: "easeInOutQuint",
+			// translateY: `6rem`,
 			duration: timeout,
 		})
 	}
@@ -38,7 +38,7 @@ class Transition extends React.PureComponent {
 	slideIn() {
 		anime({
 			targets: "main",
-			easing: "easeInOutQuad",
+			easing: "easeInOutQuint",
 			// translateY: `0rem`,
 			duration: timeout,
 		})
@@ -51,8 +51,8 @@ class Transition extends React.PureComponent {
 			<TransitionGroup>
 				<ReactTransition
 					key={location.pathname}
-					onEnter={this.slideOut}
-					onExited={this.slideIn}
+					// onEnter={this.slideOut}
+					// onExited={this.slideIn}
 					timeout={{
 						enter: timeout,
 						exit: timeout,
@@ -70,4 +70,5 @@ class Transition extends React.PureComponent {
 		)
 	}
 }
-export default Transition
+
+export default PageTransition

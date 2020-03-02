@@ -45,7 +45,6 @@ $gutter: 2rem;
 		position: absolute;
 		top: $top-right-offset-top;
 
-		width: 40%;
 		left: 50%;
 
 		transition: width $transition-default, top $transition-default,
@@ -57,8 +56,7 @@ $gutter: 2rem;
 		top: $right-offset-top;
 
 		left: 50%;
-
-		width: 55%;
+		width: 45%;
 
 		display: flex;
 		justify-content: center;
@@ -75,11 +73,11 @@ $gutter: 2rem;
 @mixin one-col-layout() {
 	// Layout container goes to full width
 	.LayoutContainer {
-		max-width: 100%;
+		// width: 100%;
 	}
 
 	.Layout--top-right {
-		width: 40%;
+		width: 50%;
 	}
 
 	// Main content column expands to full width (adjusted for padding weirdness)
@@ -87,8 +85,24 @@ $gutter: 2rem;
 		left: 0;
 		width: 100%;
 	}
+}
 
-	// 'LayeredHero' component goes to top left to act as a home brand logo
+@mixin shrink-columns() {
+	.Layout--right {
+		width: 55%;
+		left: 45%;
+	}
+
+	.Layout--top-right {
+		left: 45%;
+	}
+
+	.Layout--left {
+		width: 40%;
+	}
+}
+
+@mixin minimize-layered-hero() {
 	.Layout--left {
 		top: 0;
 	}
@@ -97,11 +111,11 @@ $gutter: 2rem;
 		width: 175px;
 		top: 2rem;
 
-		.overlay-text {
+		.LayeredHero--text {
 			font-size: 4rem;
 		}
 
-		.overlay-icon svg {
+		.LayeredHero--icon svg {
 			top: 0;
 			right: -15%;
 			opacity: 1;
@@ -109,10 +123,55 @@ $gutter: 2rem;
 	}
 }
 
+@mixin shrink-layered-hero() {
+	.LayeredHero {
+		// width: 175px;
+		// top: 2rem;
+
+		.LayeredHero--text {
+			// font-size: 6rem;
+		}
+
+		.LayeredHero--image {
+			// margin-top: -4rem;
+		}
+
+		// .LayeredHero--icon svg {
+		// 	top: 0;
+		// 	right: -15%;
+		// 	opacity: 1;
+		// }
+	}
+}
+
+@mixin home-layout() {
+	.LayeredHero {
+		width: auto;
+	}
+
+	.Layout--left {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+}
+
 // All pages go to one-col layout on smaller screens
-.site-root {
-	@media (max-width: 1200px) {
+.site-root.about {
+	@include respond-to(lg) {
+		@include shrink-layered-hero();
+		@include shrink-columns();
+	}
+
+	@include respond-to(md) {
 		@include one-col-layout();
+		@include minimize-layered-hero();
+	}
+}
+
+.site-root.home {
+	@include respond-to(md) {
+		@include home-layout();
 	}
 }
 
@@ -120,6 +179,7 @@ $gutter: 2rem;
 .site-root.work,
 .site-root.writing {
 	@include one-col-layout();
+	@include minimize-layered-hero();
 }
 
 // (For debugging) Show layout borders

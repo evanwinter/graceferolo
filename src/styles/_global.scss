@@ -57,10 +57,12 @@ a {
 	&[class] {
 		text-decoration: none;
 	}
+
+	transition: color 350ms ease;
 }
 
 a:hover {
-	color: rgba($link-color, 0.28);
+	color: rgba($link-color, 0.75);
 	&[class] {
 		color: currentColor;
 	}
@@ -84,6 +86,16 @@ a:visited {
 		}
 		&:last-child {
 			margin-right: 0;
+		}
+	}
+
+	@include respond-to(md) {
+		.cols {
+			flex-direction: column;
+		}
+
+		.col {
+			margin: 1rem 0rem;
 		}
 	}
 }

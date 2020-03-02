@@ -13,11 +13,11 @@ import "@styles/index.scss"
 const Layout = (props) => {
 	const { children, location, path } = props
 	const page = Utilities.getCurrentPage()
+	const anim = new Animations()
 
 	if (page) document.querySelector("body").dataset.currentPage = page
 
 	useEffect(() => {
-		const anim = new Animations()
 		anim.initFadeIn()
 	}, [])
 

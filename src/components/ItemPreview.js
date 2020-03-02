@@ -2,20 +2,21 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-const ItemPreview = ({ node, active }) => {
-	const { slug, mainImage, title, subtitle } = node
+const ItemPreview = ({ node, active, path }) => {
+	const { mainImage, title, subtitle } = node
 
 	return (
 		<Link
-			className="WritingItemPreview"
-			to={`/writing/${node.slug}`}
+			className="ItemPreview"
+			to={path}
 			data-active={active}>
-			<div className="WritingItemPreview--image">
+			<div className="ItemPreview--image">
 				<BackgroundImage fluid={mainImage.fluid} />
 			</div>
-			<div className="WritingItemPreview--copy">
-				<h4 className="WritingItemPreview--title">{title}</h4>
-				<span className="WritingItemPreview--subtitle">{subtitle}</span>
+			<div className="ItemPreview--mask"></div>
+			<div className="ItemPreview--copy">
+				<h4 className="ItemPreview--title">{title}</h4>
+				<span className="ItemPreview--subtitle">{subtitle}</span>
 			</div>
 		</Link>
 	)

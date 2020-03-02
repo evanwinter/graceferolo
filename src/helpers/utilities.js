@@ -23,12 +23,14 @@ const Utilities = {
 				return "xs"
 			} else if (width >= 320 && width < 720) {
 				return "sm"
-			} else if (width >= 720 && width < 1200) {
+			} else if (width >= 720 && width < 900) {
 				return "md"
-			} else if (width >= 1200 && width < 1440) {
+			} else if (width >= 900 && width < 1200) {
 				return "lg"
-			} else if (width >= 1440) {
+			} else if (width >= 1440 && width < 1680) {
 				return "xl"
+			} else if (width >= 1680) {
+				return "xxl"
 			}
 		}
 
@@ -84,6 +86,34 @@ const Utilities = {
 		)
 
 		return debouncedValue
+	},
+
+	useWindowSize: function() {
+		const isClient = typeof window === "object"
+
+		function getSize() {
+			return {
+				width: isClient ? window.innerWidth : undefined,
+				height: isClient ? window.innerHeight : undefined,
+			}
+		}
+
+		const [windowSize, setWindowSize] = useState(getSize)
+
+		useEffect(() => {
+			if (!isClient) {
+				return false
+			}
+
+			function handleResize() {
+				setWindowSize(getSize())
+			}
+
+			window.addEventListener("resize", handleResize)
+			return () => window.removeEventListener("resize", handleResize)
+		}, []) // Empty array ensures that effect is only run on mount and unmount
+
+		return windowSize
 	},
 }
 

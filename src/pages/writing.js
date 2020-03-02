@@ -17,7 +17,6 @@ class WritingIndex extends React.Component {
 			<>
 				<Helmet title={"Writing - " + siteTitle} />
 				<ArticleList posts={posts} />
-				<OtherWritingItems />
 			</>
 		)
 	}

@@ -49,7 +49,7 @@ const ArticleList = ({ posts }) => {
 
 	return (
 		<div className="ArticleList">
-			<TagList posts={posts} activeTag={activeTag} handleClick={handleClick} />
+			{/* <TagList posts={posts} activeTag={activeTag} handleClick={handleClick} /> */}
 			<ul className="ArticleList--list">
 				{articles.map((post, index) => {
 					return (
