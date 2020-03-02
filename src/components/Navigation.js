@@ -6,12 +6,12 @@ import Utils from "@helpers/utilities"
 const Navigation = (props) => {
 	const breakpoint = Utils.useBreakpoints()
 
-	const page = Utils.getCurrentPage()
+	const page = Utils.getCurrentPage() || "home"
 
 	const [open, setOpen] = useState(false)
 
 	const smallScreen = ["xs", "sm"].includes(breakpoint)
-	const collapsed = smallScreen || (page === "home" && breakpoint === "md") || typeof window == "undefined"
+	const collapsed = smallScreen || (page === "home" && breakpoint === "md")
 
 	useEffect(() => {
 		// setOpen(false)
