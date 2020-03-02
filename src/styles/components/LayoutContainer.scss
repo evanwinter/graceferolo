@@ -165,6 +165,9 @@ $gutter: 2rem;
 
 	@include respond-to(md) {
 		@include one-col-layout();
+		.Layout--top-right {
+			left: 50%;
+		}
 		@include minimize-layered-hero();
 	}
 }
