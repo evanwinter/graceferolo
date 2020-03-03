@@ -54,13 +54,13 @@ const Carousel = ({ items }) => {
 	const _length = _items.length - 1
 	const length = items.length - 1
 
-	console.log("new items length", _length)
-	console.log("original items length", length)
+	// console.log("new items length", _length)
+	// console.log("original items length", length)
 
-	console.log("index", index)
+	// console.log("index", index)
 
 	const handleNext = () => {
-		console.log(_length)
+		// console.log(_length)
 		if (index > _length - 4) {
 			setItems([..._items, ...items])
 		}
