@@ -32,26 +32,27 @@ import Utils from "@helpers/utilities"
 // })
 
 const Carousel = ({ items }) => {
-	const [_items, setItems] = useState([])
+	const [carouselItems, setCarouselItems] = useState([])
 	const [index, setIndex] = useState(0)
 	const [containerWidth, setContainerWidth] = useState(0)
 	const windowSize = Utils.useWindowSize()
 
-	const [gliding, setGliding] = useState("paused")
+	// const [gliding, setGliding] = useState("paused")
 
-	const actualNumItems = items.length
-
-	if (items && _items.length === 0) {
-		setItems(items)
+	// Hydrate component state with items
+	if (items && carouselItems.length === 0) {
+		// Start with two sets of items
+		setCarouselItems([...items, ...items])
 	}
-
+	
+	// Update container width when window size changes
 	useEffect(() => {
 		const width = document.querySelector(".Carousel--container")?.clientWidth
 		setContainerWidth(width)
 	}, [windowSize.width])
 
 	//Minus 1 for array offset from 0
-	const _length = _items.length - 1
+	const _length = carouselItems.length - 1
 	const length = items.length - 1
 
 	// console.log("new items length", _length)
@@ -61,16 +62,19 @@ const Carousel = ({ items }) => {
 
 	const handleNext = () => {
 		// console.log(_length)
+
+		// if the current index is within four indexes of the last item, add another batch of items on to the list
+
 		if (index > _length - 4) {
-			setItems([..._items, ...items])
+			setCarouselItems([...carouselItems, ...items])
 		}
 
 		index === _length ? setIndex(0) : setIndex(index + 1)
 	}
 
 	const handlePrevious = () => {
-		if (index <= _length - 4 && _length >= items.length * 2) {
-			setItems(_items.slice(0, _items.length - 4))
+		if (index <= _length - 4 && _length >= items.length * 2.5) {
+			setCarouselItems(carouselItems.slice(0, carouselItems.length - 4))
 		}
 
 		index === 0 ? setIndex(0) : setIndex(index - 1)
@@ -94,75 +98,20 @@ const Carousel = ({ items }) => {
 	}
 
 	useEffect(() => {
-		const container = document.querySelector(".Carousel--container")
 		const item = document.querySelector(".CarouselItem")
 		const padding = 16
 		const shiftPx = item.clientWidth + padding
 		const base = shiftPx * index
-		// container.style.transform = `translateX(-${base}px)`
 
 		if (item) {
 			anime({
 				targets: ".Carousel--container",
 				translateX: -base,
 				duration: 500,
-				// direction: 'alternate',
-				// loop: false,
-				// autoplay: false,
 				easing: "easeOutSine",
 			})
 		}
 	}, [index])
-
-	// const focusIndex = (index) => {
-	// 	const item = document.querySelector(".CarouselItem")
-	// 	const padding = 16
-	// 	const shiftPx = item.clientWidth + padding
-
-	// 	anime({
-	// 		targets: ".Carousel--container",
-	// 		translateX: -base,
-	// 		duration: 500,
-	// 		// direction: 'alternate',
-	// 		// loop: false,
-	// 		// autoplay: false,
-	// 		easing: "easeOutSine",
-	// 	})
-	// }
-
-	useEffect(() => {
-		// if (gliding === "forward") {
-		// 	const container = document.querySelector(".Carousel--container")
-		// 	const max = container.clientWidth
-		// 	anime({
-		// 		targets: ".Carousel--container",
-		// 		translateX: -max,
-		// 		duration: 3000,
-		// 		// direction: 'alternate',
-		// 		// loop: false,
-		// 		// autoplay: false,
-		// 		easing: "linear",
-		// 	})
-		// } else if (gliding === "backward") {
-		// 	const container = document.querySelector(".Carousel--container")
-		// 	const max = container.clientWidth
-		// 	anime({
-		// 		targets: ".Carousel--container",
-		// 		translateX: 0,
-		// 		duration: 3000,
-		// 		// direction: 'alternate',
-		// 		// loop: false,
-		// 		// autoplay: false,
-		// 		easing: "linear",
-		// 	})
-		// } else if (gliding === "paused") {
-		// 	const nearestItemX = 0
-		// 	anime({
-		// 		targets: ".Carousel--container",
-		// 		translateX: nearestItemX,
-		// 	})
-		// }
-	}, [gliding])
 
 	return (
 		<div className="Carousel">
@@ -185,8 +134,8 @@ const Carousel = ({ items }) => {
 				</nav>
 			</div>
 			<div className="Carousel--container">
-				{_items &&
-					_items.map(({ node }, i) => {
+				{carouselItems &&
+					carouselItems.map(({ node }, i) => {
 						return <CarouselItem key={i} item={node} />
 					})}
 			</div>

@@ -9,6 +9,7 @@ const Navigation = (props) => {
 	const page = Utils.getCurrentPage() || "home"
 
 	const [open, setOpen] = useState(false)
+	const [collapsed, setCollapsed] = useState(true)
 
 	useEffect(() => {
 		console.log("running")
@@ -17,12 +18,11 @@ const Navigation = (props) => {
 		const smallScreen = ["xs", "sm"].includes(breakpoint)
 		const homeSmallScreen = page === "home" && breakpoint === "md"
 
-		let collapsed = false
 		if (smallScreen || homeSmallScreen) {
-			collapsed = true
+			setCollapsed(true)
+		} else {
+			setCollapsed(false)
 		}
-		
-		// setOpen(false)
 	}, [breakpoint])
 
 	return (
