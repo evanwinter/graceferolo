@@ -8,7 +8,8 @@ const locale = "en-US"
 const detectImage = (file) => {
 	const contentTypes = {
 		"image/webp": true,
-		"application/pdf": true,
+		"image/jpeg": true,
+		"image/png": true,
 	}
 
 	const { contentType } = file[locale]
@@ -42,6 +43,8 @@ const defaultOptions = {
 						</video>
 					</div>
 				)
+			} else {
+				throw new Error("Unable to handle this file type", file)
 			}
 		},
 	},
