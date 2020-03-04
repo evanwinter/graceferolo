@@ -6,11 +6,23 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 const locale = "en-US"
 
 const detectImage = (file) => {
-	return file[locale].contentType == "image/webp"
+	const contentTypes = {
+		"image/webp": true,
+		"application/pdf": true,
+	}
+
+	const { contentType } = file[locale]
+	return contentTypes[contentType]
 }
 
 const detectVideo = (file) => {
-	return file[locale].contentType == "video/mp4"
+	const contentTypes = {
+		"video/mp4": true,
+		"video/quicktime": true,
+	}
+
+	const { contentType } = file[locale]
+	return contentTypes[contentType]
 }
 
 const defaultOptions = {

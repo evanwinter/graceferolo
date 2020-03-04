@@ -268,7 +268,7 @@ $squiggly-line-width-sm: 300px;
 		top: 0;
 		left: 0;
 
-		transition: background $transition-default 500ms;
+		// transition: background $transition-default 500ms;
 	}
 
 	&::after {
@@ -286,7 +286,7 @@ $squiggly-line-width-sm: 300px;
 		top: 0;
 		right: 0;
 
-		transition: background $transition-default 500ms;
+		// transition: background $transition-default 500ms;
 	}
 }
 

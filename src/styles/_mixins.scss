@@ -93,6 +93,7 @@
 		font-size: 1.35rem;
 	}
 }
+
 @mixin h4-font-style() {
 	font-size: 1.75rem;
 	@include respond-to(lg) {

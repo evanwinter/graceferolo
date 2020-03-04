@@ -59,7 +59,7 @@ const OtherWorkItems = () => {
 					<ItemPreview
 						key={index}
 						node={node}
-						path={`work/${node.slug}`}
+						path={`/work/${node.slug}`}
 						active={node.slug === currentSlug}
 					/>
 				))}
