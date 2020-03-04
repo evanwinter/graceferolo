@@ -194,13 +194,15 @@ $gutter: 2rem;
 	}
 }
 
+$estimate-layered-hero-height: 552px;
+
 .site-root {
 	@include respond-to(sm) {
 		.Layout--right {
 			top: 160px;
 		}
 		.Layout--left {
-			top: 25vw;
+			top: calc(50vh - (552px / 2));
 		}
 	}
 }

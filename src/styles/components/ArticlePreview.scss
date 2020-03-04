@@ -29,25 +29,22 @@
 	}
 
 	&--title {
-		@include h2-font-style();
+		@include article-title();
 		a {
 			text-decoration: none;
 		}
-		margin-bottom: 0.5em;
 	}
 
 	&--subtitle {
-		@include h4-font-style();
-		font-style: italic;
-		font-weight: 500;
-		margin-bottom: 1.25rem;
+		@include article-subtitle();
 	}
 
 	&--intro {
+		@include article-intro();
 	}
 
 	&--date {
-		color: rgba($theme-light, 0.75);
+		@include article-date();
 	}
 }
 

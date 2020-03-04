@@ -146,6 +146,9 @@ a:visited {
 		max-width: 700px;
 		margin-right: auto;
 		margin-left: auto;
+		@include respond-to(md) {
+			font-size: 1.15rem;
+		}
 	}
 
 	h2,
@@ -175,27 +178,6 @@ a:visited {
 
 	@include respond-to(md) {
 	}
-}
-
-h1 {
-	@include h1-font-style();
-}
-
-h2 {
-	@include h2-font-style();
-}
-
-h3 {
-	@include h3-font-style();
-}
-h4 {
-	@include h4-font-style();
-}
-h5 {
-	@include h5-font-style();
-}
-h6 {
-	@include h6-font-style();
 }
 
 $squiggly-line-width: 400px;
@@ -245,6 +227,10 @@ $squiggly-line-width-sm: 300px;
 
 .SquigglyLine {
 	margin: 2rem auto;
+
+	@include respond-to(md) {
+		margin: 1rem auto;
+	}
 
 	@include respond-to(sm) {
 		@include line-small();
@@ -304,59 +290,59 @@ $squiggly-line-width-sm: 300px;
 	}
 }
 
-.site-root[data-current-page="writing"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-dark, 0) 80%,
-			rgba($theme-dark, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-dark, 0) 80%,
-			rgba($theme-dark, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="writing"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-dark, 0) 80%,
+// 			rgba($theme-dark, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-dark, 0) 80%,
+// 			rgba($theme-dark, 1) 100%
+// 		);
+// 	}
+// }
 
-.site-root[data-current-page="work"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-lightblue, 0) 80%,
-			rgba($theme-lightblue, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-lightblue, 0) 80%,
-			rgba($theme-lightblue, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="work"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-lightblue, 0) 80%,
+// 			rgba($theme-lightblue, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-lightblue, 0) 80%,
+// 			rgba($theme-lightblue, 1) 100%
+// 		);
+// 	}
+// }
 
-.site-root[data-current-page="about"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-green, 0) 80%,
-			rgba($theme-green, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-green, 0) 80%,
-			rgba($theme-green, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="about"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-green, 0) 80%,
+// 			rgba($theme-green, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-green, 0) 80%,
+// 			rgba($theme-green, 1) 100%
+// 		);
+// 	}
+// }
