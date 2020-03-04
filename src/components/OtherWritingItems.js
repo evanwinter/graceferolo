@@ -53,7 +53,7 @@ const OtherWritingItems = () => {
 					<ItemPreview
 						key={index}
 						node={node}
-						path={`writing/${node.slug}`}
+						path={`/writing/${node.slug}`}
 						active={node.slug === currentSlug}
 					/>
 				))}

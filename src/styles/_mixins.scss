@@ -92,6 +92,7 @@
 		font-size: 1.35rem;
 	}
 }
+
 @mixin h4-font-style() {
 	font-size: 1.75rem;
 	@include respond-to(lg) {
@@ -107,4 +108,12 @@
 @mixin h5-font-style() {
 }
 @mixin h6-font-style() {
+}
+
+@mixin title-style() {
+	
+}
+
+@mixin subtitle-style() {
+	
 }

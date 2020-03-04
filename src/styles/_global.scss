@@ -282,7 +282,7 @@ $squiggly-line-width-sm: 300px;
 		top: 0;
 		left: 0;
 
-		transition: background $transition-default 500ms;
+		// transition: background $transition-default 500ms;
 	}
 
 	&::after {
@@ -300,63 +300,63 @@ $squiggly-line-width-sm: 300px;
 		top: 0;
 		right: 0;
 
-		transition: background $transition-default 500ms;
+		// transition: background $transition-default 500ms;
 	}
 }
 
-.site-root[data-current-page="writing"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-dark, 0) 80%,
-			rgba($theme-dark, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-dark, 0) 80%,
-			rgba($theme-dark, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="writing"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-dark, 0) 80%,
+// 			rgba($theme-dark, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-dark, 0) 80%,
+// 			rgba($theme-dark, 1) 100%
+// 		);
+// 	}
+// }
 
-.site-root[data-current-page="work"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-lightblue, 0) 80%,
-			rgba($theme-lightblue, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-lightblue, 0) 80%,
-			rgba($theme-lightblue, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="work"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-lightblue, 0) 80%,
+// 			rgba($theme-lightblue, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-lightblue, 0) 80%,
+// 			rgba($theme-lightblue, 1) 100%
+// 		);
+// 	}
+// }
 
-.site-root[data-current-page="about"] {
-	.SquigglyLine::before {
-		background: linear-gradient(
-			270deg,
-			transparent 0%,
-			rgba($theme-green, 0) 80%,
-			rgba($theme-green, 1) 100%
-		);
-	}
-	.SquigglyLine::after {
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba($theme-green, 0) 80%,
-			rgba($theme-green, 1) 100%
-		);
-	}
-}
+// .site-root[data-current-page="about"] {
+// 	.SquigglyLine::before {
+// 		background: linear-gradient(
+// 			270deg,
+// 			transparent 0%,
+// 			rgba($theme-green, 0) 80%,
+// 			rgba($theme-green, 1) 100%
+// 		);
+// 	}
+// 	.SquigglyLine::after {
+// 		background: linear-gradient(
+// 			90deg,
+// 			transparent 0%,
+// 			rgba($theme-green, 0) 80%,
+// 			rgba($theme-green, 1) 100%
+// 		);
+// 	}
+// }

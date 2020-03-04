@@ -37,16 +37,12 @@
 		"lodash": "^4.17.11",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.0",
-		"react-anime": "^3.0.3",
 		"react-dom": "^16.13.0",
 		"react-feather": "^2.0.3",
 		"react-helmet": "^5.2.0",
-		"react-slick": "^0.25.2",
 		"react-transition-group": "^4.3.0",
-		"rich-text-to-react": "^1.1.0",
 		"sharp": "^0.22.0",
-		"typography": "^0.16.19",
-		"use-breakpoint": "^1.1.0"
+		"typography": "^0.16.19"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-optional-chaining": "^7.8.3",
