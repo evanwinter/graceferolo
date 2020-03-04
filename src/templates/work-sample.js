@@ -13,6 +13,8 @@ class WorkSampleTemplate extends React.Component {
 		const node = get(this.props, "data.contentfulWorkSample")
 		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
+		console.log(node)
+
 		return (
 			<div className="WorkSampleTemplate">
 				<Helmet title={`${node.title} | ${siteTitle}`} />

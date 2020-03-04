@@ -235,7 +235,7 @@ $squiggly-line-width-sm: 300px;
 	@include respond-to(sm) {
 		@include line-small();
 	}
-	
+
 	&.small {
 		@include line-small();
 	}
