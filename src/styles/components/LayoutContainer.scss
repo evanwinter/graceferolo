@@ -111,6 +111,10 @@ $gutter: 2rem;
 @mixin minimize-layered-hero() {
 	.Layout--left {
 		top: 0;
+
+		@include respond-to(sm) {
+			left: -1rem;
+		}
 	}
 
 	.LayeredHero {
@@ -125,6 +129,12 @@ $gutter: 2rem;
 			top: 0;
 			right: -15%;
 			opacity: 1;
+		}
+
+		@include respond-to(sm) {
+			.LayeredHero--text {
+				font-size: 3rem;
+			}
 		}
 	}
 }
@@ -181,6 +191,14 @@ $gutter: 2rem;
 .site-root[data-current-page="home"] {
 	@include respond-to(md) {
 		@include home-layout();
+	}
+}
+
+.site-root {
+	@include respond-to(sm) {
+		.Layout--right {
+			top: 160px;
+		}
 	}
 }
 

@@ -16,9 +16,6 @@ const ArticlePreview = ({ post }) => {
 					<Link to={`/writing/${post.slug}`}>{post.title}</Link>
 				</h2>
 				<h3 className="ArticlePreview--subtitle">{post.subtitle}</h3>
-				{post.intro && (
-					<p className="ArticlePreview--intro">{post.intro.intro}</p>
-				)}
 				<small className="ArticlePreview--date">{post.date}</small>
 			</div>
 		</div>

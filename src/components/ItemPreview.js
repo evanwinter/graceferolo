@@ -13,7 +13,6 @@ const ItemPreview = ({ node, active, path }) => {
 			<div className="ItemPreview--image">
 				<BackgroundImage fluid={mainImage.fluid} />
 			</div>
-			<div className="ItemPreview--mask"></div>
 			<div className="ItemPreview--copy">
 				<h4 className="ItemPreview--title">{title}</h4>
 				<span className="ItemPreview--subtitle">{subtitle}</span>

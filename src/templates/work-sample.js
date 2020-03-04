@@ -24,7 +24,7 @@ class WorkSampleTemplate extends React.Component {
 						</div>
 						<div className="col col-right">
 							<h1 className="title">{node.title}</h1>
-							<h2 className="subtitle">{node.subtitle}</h2>
+							<h3 className="subtitle">{node.subtitle}</h3>
 							<SquigglyLine />
 							{node.intro && <p className="intro">{node.intro.intro}</p>}
 							<article>{RTR(node.body.json)}</article>

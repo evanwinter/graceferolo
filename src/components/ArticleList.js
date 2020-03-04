@@ -53,9 +53,7 @@ const ArticleList = ({ posts }) => {
 			<ul className="ArticleList--list">
 				{articles.map((post, index) => {
 					return (
-						<li key={index}>
-							<ArticlePreview post={post.node} />
-						</li>
+						<ArticlePreview key={index} post={post.node} />
 					)
 				})}
 			</ul>

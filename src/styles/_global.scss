@@ -98,6 +98,10 @@ a:visited {
 			margin: 1rem 0rem;
 		}
 	}
+
+	@include respond-to(sm) {
+		// margin-top: -50px;
+	}
 }
 
 .WorkSampleTemplate {
@@ -105,7 +109,7 @@ a:visited {
 	margin: 0 auto;
 
 	* {
-		text-shadow: 1px 1px 3px rgba($theme-dark, 0.25);
+		// text-shadow: 1px 1px 3px rgba($theme-dark, 0.25);
 	}
 
 	.cols {
@@ -130,7 +134,7 @@ a:visited {
 	p,
 	span,
 	.intro {
-		text-shadow: 0.5px 0.5px 1.5px rgba($theme-dark, 0.25);
+		// text-shadow: 0.5px 0.5px 1.5px rgba($theme-dark, 0.25);
 	}
 
 	p {
@@ -157,15 +161,34 @@ a:visited {
 
 @mixin title-font-style() {
 	font-size: 4rem;
+	@include respond-to(md) {
+		font-size: 3.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 3rem;
+	}
+	
 	margin-bottom: 0.15em;
 }
 
 @mixin subtitle-font-style() {
-	font-size: 2rem;
+	font-size: 3rem;
+	@include respond-to(md) {
+		font-size: 2.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 2rem;
+	}
 }
 
 @mixin h3-font-style() {
-	font-size: 1.6rem;
+	font-size: 2rem;
+	@include respond-to(md) {
+		font-size: 1.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 1.35rem;
+	}
 }
 @mixin h4-font-style() {
 }
@@ -174,13 +197,11 @@ a:visited {
 @mixin h6-font-style() {
 }
 
-h1,
-.title {
+h1 {
 	@include title-font-style();
 }
 
-h2,
-.subtitle {
+h2 {
 	@include subtitle-font-style();
 }
 

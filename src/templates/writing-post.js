@@ -45,9 +45,6 @@ export const pageQuery = graphql`
 		contentfulWritingPost(slug: { eq: $slug }) {
 			title
 			subtitle
-			intro {
-				intro
-			}
 			date(formatString: "MMMM Do, YYYY")
 			mainImage {
 				fluid(maxWidth: 1180, background: "rgb:000000") {

@@ -35,9 +35,6 @@ export const pageQuery = graphql`
 					title
 					subtitle
 					slug
-					intro {
-						intro
-					}
 					date(formatString: "MMMM Do, YYYY")
 					mainImage {
 						fluid(maxWidth: 1200, resizingBehavior: SCALE) {
