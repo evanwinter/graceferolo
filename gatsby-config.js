@@ -42,6 +42,7 @@ module.exports = {
 					"@styles": "src/styles",
 					"@templates": "src/templates",
 					"@helpers": "src/helpers",
+					"@hooks": "src/hooks",
 					"@static": "static",
 				},
 				extensions: ["js", "scss"],
@@ -59,6 +60,18 @@ module.exports = {
 				},
 			},
 		},
+		{
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Grace Ferolo`,
+        short_name: `grace-ferolo`,
+        start_url: `/`,
+        background_color: `#8cb9c6`,
+        theme_color: `#8cb9c6`,
+        display: `minimal-ui`,
+        icon: `static/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
 		// "gatsby-plugin-offline",
 	],
 }

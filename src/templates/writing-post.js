@@ -4,7 +4,6 @@ import Helmet from "react-helmet"
 import get from "lodash/get"
 
 import Image from "@components/Image"
-import Hero from "@components/Hero"
 import Article from "@components/Article"
 import OtherWritingItems from "@components/OtherWritingItems"
 

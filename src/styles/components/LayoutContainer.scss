@@ -46,6 +46,10 @@ $gutter: 2rem;
 		top: $top-right-offset-top;
 
 		left: 50%;
+		@include respond-to(md) {
+			left: auto;
+			right: 0;
+		}
 
 		transition: width $transition-default, top $transition-default,
 			left $transition-default, right $transition-default;
@@ -78,6 +82,8 @@ $gutter: 2rem;
 
 	.Layout--top-right {
 		width: 50%;
+		// left: unset;
+		// right: 0rem;
 	}
 
 	// Main content column expands to full width (adjusted for padding weirdness)

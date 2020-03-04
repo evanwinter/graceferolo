@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/get"
 
-import Hero from "@components/Hero"
+import SquigglyLine from "@components/SquigglyLine"
 import OtherWorkItems from "@components/OtherWorkItems"
 
 import { RTR } from "@helpers/rich-text-renderer"
@@ -14,16 +14,25 @@ class WorkSampleTemplate extends React.Component {
 		const siteTitle = get(this.props, "data.site.siteMetadata.title")
 
 		return (
-			<div>
+			<div className="WorkSampleTemplate">
 				<Helmet title={`${node.title} | ${siteTitle}`} />
-				<Hero node={node} />
+				{/* <Hero node={node} /> */}
 				<div className="wrapper">
-					<h1 className="section-title">{node.title}</h1>
-					<h1 className="section-subtitle">{node.subtitle}</h1>
-					<p>{node.intro?.intro}</p>
-					<article>{RTR(node.body.json)}</article>
-					<OtherWorkItems />
+					<div className="cols">
+						<div className="col col-left">
+							{/* <Image fluid={post.mainImage.fluid} /> */}
+						</div>
+						<div className="col col-right">
+							<h1 className="title">{node.title}</h1>
+							<h2 className="subtitle">{node.subtitle}</h2>
+							<SquigglyLine />
+							{node.intro && <p className="intro">{node.intro.intro}</p>}
+							<article>{RTR(node.body.json)}</article>
+						</div>
+					</div>
 				</div>
+				<SquigglyLine />
+				<OtherWorkItems />
 			</div>
 		)
 	}

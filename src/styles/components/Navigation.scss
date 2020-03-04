@@ -53,10 +53,15 @@
 
 	@include respond-to(md) {
 		margin: 0;
+		// margin-right: 2rem;
 	}
 
 	&:first-child {
 		margin-left: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
 	}
 }
 

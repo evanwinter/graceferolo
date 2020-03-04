@@ -99,3 +99,160 @@ a:visited {
 		}
 	}
 }
+
+.WorkSampleTemplate {
+	max-width: 900px;
+	margin: 0 auto;
+
+	* {
+		text-shadow: 1px 1px 3px rgba($theme-dark, 0.25);
+	}
+
+	.cols {
+	}
+
+	.col {
+	}
+
+	.intro {
+		font-size: 1.5rem;
+		margin-bottom: 3rem;
+		max-width: 700px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	.intro {
+		text-shadow: 0.5px 0.5px 1.5px rgba($theme-dark, 0.25);
+	}
+
+	p {
+		font-size: 1.25rem;
+	}
+
+	.title,
+	.subtitle,
+	.intro {
+		text-align: center;
+	}
+
+	.embedded-asset {
+		margin: 2rem auto;
+	}
+
+	@include respond-to(md) {
+	}
+}
+
+@mixin title-font-style() {
+	font-size: 4rem;
+	margin-bottom: 0.15em;
+}
+
+@mixin subtitle-font-style() {
+	font-size: 2rem;
+}
+
+@mixin h3-font-style() {
+}
+@mixin h4-font-style() {
+}
+@mixin h5-font-style() {
+}
+@mixin h6-font-style() {
+}
+
+h1,
+.title {
+	@include title-font-style();
+}
+
+h2,
+.subtitle {
+	@include subtitle-font-style();
+}
+
+h3 {
+	@include h3-font-style();
+}
+h4 {
+	@include h4-font-style();
+}
+h5 {
+	@include h5-font-style();
+}
+h6 {
+	@include h6-font-style();
+}
+
+$squiggly-line-width: 400px;
+
+@keyframes wave {
+	0% {
+		left: -1 * $squiggly-line-width;
+	}
+	100% {
+		left: 0;
+	}
+}
+
+.SquigglyLine {
+	margin: 2rem auto;
+
+	width: $squiggly-line-width;
+	// height: 20px;
+	// margin: 2rem auto;
+	position: relative;
+	overflow: hidden;
+	// height: 24px;
+
+	// border: 1px solid red;
+	// svg { border: 1px solid blue;}
+
+	// animation: 3s wave linear infinite;
+
+	svg {
+		z-index: 1;
+		position: relative;
+		left: -1 * $squiggly-line-width / 2;
+		width: $squiggly-line-width * 2;
+		animation: wave 6s linear infinite;
+	}
+
+	&::before {
+		z-index: 2;
+		content: "";
+		background: linear-gradient(
+			270deg,
+			rgba($theme-lightblue, 0) 80%,
+			rgba($theme-lightblue, 1) 100%
+		);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		z-index: 2;
+		content: "";
+		background: linear-gradient(
+			90deg,
+			rgba($theme-lightblue, 0) 80%,
+			rgba($theme-lightblue, 1) 100%
+		);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
