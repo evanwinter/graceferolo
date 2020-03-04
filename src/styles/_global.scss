@@ -151,6 +151,10 @@ a:visited {
 	}
 }
 
+@mixin large-paragraph-style() {
+	font-size: 1.25rem;
+}
+
 @mixin title-font-style() {
 	font-size: 4rem;
 	margin-bottom: 0.15em;
@@ -161,6 +165,7 @@ a:visited {
 }
 
 @mixin h3-font-style() {
+	font-size: 1.6rem;
 }
 @mixin h4-font-style() {
 }

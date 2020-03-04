@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react"
+
 export const useBreakpoints = () => {
 	const getDeviceConfig = (width) => {
 		if (width < 320) {
