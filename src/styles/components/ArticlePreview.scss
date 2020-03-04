@@ -29,8 +29,7 @@
 	}
 
 	&--title {
-		@include subtitle-font-style();
-
+		@include h2-font-style();
 		a {
 			text-decoration: none;
 		}
@@ -38,16 +37,17 @@
 	}
 
 	&--subtitle {
+		@include h4-font-style();
 		font-style: italic;
 		font-weight: 500;
-
-		@include h3-font-style();
+		margin-bottom: 1.25rem;
 	}
 
 	&--intro {
 	}
 
 	&--date {
+		color: rgba($theme-light, 0.75);
 	}
 }
 
@@ -58,7 +58,7 @@
 
 		.ArticlePreview--image,
 		.ArticlePreview--copy {
-			margin: 0.5rem 0;
+			margin: 0.75rem 0;
 		}
 	}
 }

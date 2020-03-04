@@ -7,8 +7,6 @@ import Image from "@components/Image"
 import Article from "@components/Article"
 import OtherWritingItems from "@components/OtherWritingItems"
 
-import { RTR } from "@helpers/rich-text-renderer"
-
 class WritingPostTemplate extends React.Component {
 	render() {
 		const post = get(this.props, "data.contentfulWritingPost")

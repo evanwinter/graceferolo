@@ -64,14 +64,14 @@ const Carousel = ({ items }) => {
 		if (numOriginalItems < 3) {
 			// If within two batch sizes, add another batch
 			if (index === numCarouselItems - numOriginalItems * 2) {
-				console.log("Adding another batch of carousel items")
+				// console.log("Adding another batch of carousel items")
 				const nextCarouselItems = [...carouselItems, ...items]
 				setCarouselItems(nextCarouselItems)
 			}
 		} else {
 			// If within one batch size, add another batch
 			if (index === numCarouselItems - numOriginalItems - 1) {
-				console.log("Adding another batch of carousel items")
+				// console.log("Adding another batch of carousel items")
 				const nextCarouselItems = [...carouselItems, ...items]
 				setCarouselItems(nextCarouselItems)
 			}

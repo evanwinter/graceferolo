@@ -1,3 +1,13 @@
+:root {
+	--theme-lightblue: #bad3d7;
+	--theme-darkblue: #8cb9c6;
+	--theme-green: #24533f;
+	--theme-dark: #282b29;
+	--theme-light: #f2f8f9;
+
+	--background-color: var(--theme-darkblue);
+}
+
 * {
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
@@ -7,7 +17,7 @@
 html {
 	font-family: "Moret";
 	font-size: $font-size-base;
-	background: $background;
+	background: var(--background-color);
 }
 
 body {
@@ -19,20 +29,28 @@ body {
 	position: relative;
 
 	color: $color;
-	background: $background;
+	background: var(--background-color);
 	transition: background $transition-default;
 
-	&[data-current-page="writing"] {
-		background: $theme-dark;
-	}
+	// &[data-current-page="writing"] {
+	// 	// background: $theme-dark;
+	// 	// --background-color: var(--theme-dark)
+	// }
 
-	&[data-current-page="work"] {
-		background: $theme-lightblue;
-	}
+	// &[data-current-page="work"] {
+	// 	// background: $theme-lightblue;
+	// 	// --background-color: var(--theme-lightblue)
+	// }
 
-	&[data-current-page="about"] {
-		background: $theme-green;
-	}
+	// &[data-current-page="about"] {
+	// 	// background: $theme-green;
+	// 	// --background-color: var(--theme-green)
+	// }
+}
+
+.site-root {
+	background: var(--background-color);
+	transition: background $transition-default;
 }
 
 img {
@@ -44,6 +62,10 @@ img {
 svg {
 	width: 100%;
 	height: 100%;
+}
+
+small {
+	font-size: 1rem;
 }
 
 ul[class] {
@@ -155,54 +177,12 @@ a:visited {
 	}
 }
 
-@mixin large-paragraph-style() {
-	font-size: 1.25rem;
-}
-
-@mixin title-font-style() {
-	font-size: 4rem;
-	@include respond-to(md) {
-		font-size: 3.5rem
-	}
-	@include respond-to(sm) {
-		font-size: 3rem;
-	}
-	
-	margin-bottom: 0.15em;
-}
-
-@mixin subtitle-font-style() {
-	font-size: 3rem;
-	@include respond-to(md) {
-		font-size: 2.5rem
-	}
-	@include respond-to(sm) {
-		font-size: 2rem;
-	}
-}
-
-@mixin h3-font-style() {
-	font-size: 2rem;
-	@include respond-to(md) {
-		font-size: 1.5rem
-	}
-	@include respond-to(sm) {
-		font-size: 1.35rem;
-	}
-}
-@mixin h4-font-style() {
-}
-@mixin h5-font-style() {
-}
-@mixin h6-font-style() {
-}
-
 h1 {
-	@include title-font-style();
+	@include h1-font-style();
 }
 
 h2 {
-	@include subtitle-font-style();
+	@include h2-font-style();
 }
 
 h3 {
@@ -219,6 +199,7 @@ h6 {
 }
 
 $squiggly-line-width: 400px;
+$squiggly-line-width-sm: 300px;
 
 @keyframes wave {
 	0% {
@@ -229,10 +210,52 @@ $squiggly-line-width: 400px;
 	}
 }
 
+@keyframes wave-sm {
+	0% {
+		left: -1 * $squiggly-line-width-sm;
+	}
+	100% {
+		left: 0;
+	}
+}
+
+@mixin line-normal() {
+	width: $squiggly-line-width;
+
+	svg {
+		z-index: 1;
+		position: relative;
+		left: -1 * $squiggly-line-width / 2;
+		width: $squiggly-line-width * 2;
+		animation: wave 6s linear infinite;
+	}
+}
+
+@mixin line-small() {
+	width: $squiggly-line-width-sm;
+
+	svg {
+		z-index: 1;
+		position: relative;
+		left: -1 * $squiggly-line-width-sm / 2;
+		width: $squiggly-line-width-sm * 2;
+		animation: wave-sm 6s linear infinite;
+	}
+}
+
 .SquigglyLine {
 	margin: 2rem auto;
 
-	width: $squiggly-line-width;
+	@include respond-to(sm) {
+		@include line-small();
+	}
+	
+	&.small {
+		@include line-small();
+	}
+
+	@include line-normal();
+
 	// height: 20px;
 	// margin: 2rem auto;
 	position: relative;
@@ -244,19 +267,12 @@ $squiggly-line-width: 400px;
 
 	// animation: 3s wave linear infinite;
 
-	svg {
-		z-index: 1;
-		position: relative;
-		left: -1 * $squiggly-line-width / 2;
-		width: $squiggly-line-width * 2;
-		animation: wave 6s linear infinite;
-	}
-
 	&::before {
 		z-index: 2;
 		content: "";
 		background: linear-gradient(
 			270deg,
+			transparent 0%,
 			rgba($theme-lightblue, 0) 80%,
 			rgba($theme-lightblue, 1) 100%
 		);
@@ -265,6 +281,8 @@ $squiggly-line-width: 400px;
 		position: absolute;
 		top: 0;
 		left: 0;
+
+		transition: background $transition-default 500ms;
 	}
 
 	&::after {
@@ -272,6 +290,7 @@ $squiggly-line-width: 400px;
 		content: "";
 		background: linear-gradient(
 			90deg,
+			transparent 0%,
 			rgba($theme-lightblue, 0) 80%,
 			rgba($theme-lightblue, 1) 100%
 		);
@@ -280,5 +299,64 @@ $squiggly-line-width: 400px;
 		position: absolute;
 		top: 0;
 		right: 0;
+
+		transition: background $transition-default 500ms;
+	}
+}
+
+.site-root[data-current-page="writing"] {
+	.SquigglyLine::before {
+		background: linear-gradient(
+			270deg,
+			transparent 0%,
+			rgba($theme-dark, 0) 80%,
+			rgba($theme-dark, 1) 100%
+		);
+	}
+	.SquigglyLine::after {
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba($theme-dark, 0) 80%,
+			rgba($theme-dark, 1) 100%
+		);
+	}
+}
+
+.site-root[data-current-page="work"] {
+	.SquigglyLine::before {
+		background: linear-gradient(
+			270deg,
+			transparent 0%,
+			rgba($theme-lightblue, 0) 80%,
+			rgba($theme-lightblue, 1) 100%
+		);
+	}
+	.SquigglyLine::after {
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba($theme-lightblue, 0) 80%,
+			rgba($theme-lightblue, 1) 100%
+		);
+	}
+}
+
+.site-root[data-current-page="about"] {
+	.SquigglyLine::before {
+		background: linear-gradient(
+			270deg,
+			transparent 0%,
+			rgba($theme-green, 0) 80%,
+			rgba($theme-green, 1) 100%
+		);
+	}
+	.SquigglyLine::after {
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba($theme-green, 0) 80%,
+			rgba($theme-green, 1) 100%
+		);
 	}
 }

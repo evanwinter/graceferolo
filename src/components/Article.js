@@ -1,15 +1,9 @@
-import React, { useRef } from "react"
-import anime from "animejs"
-
-import { useOnScreen } from "@hooks"
+import React from "react"
 import { RTR } from "@helpers/rich-text-renderer"
 
 const Article = ({ item }) => {
-	const ref = useRef()
-	const onScreen = useOnScreen(ref, "-100px")
-
 	return (
-		<article className="Article" ref={ref} data-on-screen={onScreen}>
+		<article className="Article">
 			<div className="ArticleHeader">
 				<h1 className="ArticleHeader--title">{item.title}</h1>
 				<h2 className="ArticleHeader--subtitle">{item.subtitle}</h2>

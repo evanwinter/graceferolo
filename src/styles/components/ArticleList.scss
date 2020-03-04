@@ -1,3 +1,9 @@
 .ArticleList {
-  
+  margin: 2rem 0;
+  @include respond-to(md) {
+    margin: 1.5rem 0;
+  }
+  @include respond-to(sm) {
+    margin: 0;
+  }
 }

@@ -1,7 +1,3 @@
-@mixin font-xl {
-	font-size: $font-size-xl;
-}
-
 @mixin custom-underline($height, $color) {
 	text-decoration: none;
 	position: relative;
@@ -25,7 +21,11 @@
 }
 
 @mixin respond-to($breakpoint) {
-	@if $breakpoint == "sm" {
+	@if $breakpoint == "xs" {
+		@media (max-width: $breakpoint-xs) {
+			@content;
+		}
+	} @else if $breakpoint == "sm" {
 		@media (max-width: $breakpoint-sm) {
 			@content;
 		}
@@ -46,4 +46,65 @@
 			@content;
 		}
 	}
+}
+
+@mixin font-xl {
+	font-size: $font-size-xl;
+
+	@include respond-to(sm) {
+		font-size: $font-size-xl * 0.85;
+	}
+}
+
+@mixin large-paragraph-style() {
+	font-size: 1.25rem;
+}
+
+@mixin h1-font-style() {
+	font-size: 4rem;
+	@include respond-to(lg) {
+		font-size: 3.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 3rem;
+	}
+	
+	margin-bottom: 0.15em;
+}
+
+@mixin h2-font-style() {
+	font-size: 3rem;
+	@include respond-to(lg) {}
+	@include respond-to(md) {
+		font-size: 2.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 2rem;
+	}
+}
+
+@mixin h3-font-style() {
+	font-size: 2rem;
+	@include respond-to(md) {
+		font-size: 1.5rem
+	}
+	@include respond-to(sm) {
+		font-size: 1.35rem;
+	}
+}
+@mixin h4-font-style() {
+	font-size: 1.75rem;
+	@include respond-to(lg) {
+		font-size: 1.35rem
+	}
+	@include respond-to(md) {
+		font-size: 1.15rem
+	}
+	@include respond-to(sm) {
+		font-size: 1rem;
+	}
+}
+@mixin h5-font-style() {
+}
+@mixin h6-font-style() {
 }

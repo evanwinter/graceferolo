@@ -12,8 +12,8 @@ const Navigation = (props) => {
 	const [collapsed, setCollapsed] = useState(true)
 
 	useEffect(() => {
-		console.log("running")
-		console.log(breakpoint, page)
+		// console.log("running")
+		// console.log(breakpoint, page)
 
 		const smallScreen = ["xs", "sm"].includes(breakpoint)
 		const homeSmallScreen = page === "home" && breakpoint === "md"

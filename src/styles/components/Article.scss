@@ -8,23 +8,23 @@
 
 	&--title {
 		font-size: 3.5rem;
-		@include respond-to(md) {
-			font-size: 2.5rem;
-			margin-bottom: 0.25em;
-		}
 		@include respond-to(lg) {
-			font-size: 2rem;
+			font-size: 2.5rem;
 			margin-bottom: 0.35em;
+		}
+		@include respond-to(md) {
+			font-size: 2rem;
+			margin-bottom: 0.25em;
 		}
 	}
 
 	&--subtitle {
 		font-style: italic;
 		font-size: 2rem;
-		@include respond-to(md) {
+		@include respond-to(lg) {
 			font-size: 1.5rem;
 		}
-		@include respond-to(lg) {
+		@include respond-to(md) {
 			font-size: 1.5rem;
 		}
 	}

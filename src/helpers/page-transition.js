@@ -23,7 +23,9 @@ const getTransitionStyles = {
 
 class PageTransition extends React.PureComponent {
 	scrollToTop() {
-		window.scrollTo(0, 0)
+		const element = document.querySelector(".Layout--left")
+		element.scrollIntoView(true)
+		window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
 	}
 
 	slideOut() {
@@ -51,6 +53,7 @@ class PageTransition extends React.PureComponent {
 			<TransitionGroup>
 				<ReactTransition
 					key={location.pathname}
+					onExited={this.scrollToTop}
 					// onEnter={this.slideOut}
 					// onExited={this.slideIn}
 					timeout={{

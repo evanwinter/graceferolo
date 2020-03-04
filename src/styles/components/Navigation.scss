@@ -86,21 +86,23 @@
 	height: 100vh;
 	position: fixed;
 	background: $theme-darkblue;
+	background: var(--background-color);
+	// --background-color: var(--theme-darkblue)
 
 	&.about {
-		background: $theme-green;
+		// background: $theme-green;
 	}
 
 	&.writing {
-		background: $theme-dark;
+		// background: $theme-dark;
 	}
 
 	&.work {
-		background: $theme-lightblue;
+		// background: $theme-lightblue;
 	}
 
 	&.home {
-		background: $theme-darkblue;
+		// background: $theme-darkblue;
 	}
 
 	top: 0;

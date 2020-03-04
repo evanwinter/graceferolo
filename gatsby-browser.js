@@ -5,7 +5,7 @@ export const shouldUpdateScroll = () => false
 
 const typography = new Typography({
 	baseFontSize: "18px",
-	baseLineHeight: 1.5,
+	baseLineHeight: 1.75,
 	headerFontFamily: ["Moret", "system-ui", "sans-serif"],
 	bodyFontFamily: ["Moret", "system-ui", "sans-serif"],
 })

@@ -11,13 +11,27 @@ import Utilities from "@helpers/utilities"
 import "@styles/index.scss"
 
 const Layout = (props) => {
-	const { children, location, path } = props
+	const { children, location } = props
 	const page = Utilities.getCurrentPage() || "home"
 	const anim = new Animations()
 
 	useEffect(() => {
 		document.querySelector("body").dataset.currentPage = page
 		document.querySelector(".site-root").dataset.currentPage = page
+
+		let color = ''
+		if (page === "work")
+			color = "#bad3d7"
+		else if (page === "writing")
+			color = "#282b29"
+		else if (page === "about")
+			color = "#24533f"
+		else if (page === "home")
+			color = "#8cb9c6"
+		else
+			color = "#8cb9c6"
+
+		document.documentElement.style.setProperty('--background-color', color)
 	}, [page])
 
 	useEffect(() => {
