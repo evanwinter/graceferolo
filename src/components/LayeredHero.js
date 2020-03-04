@@ -80,7 +80,7 @@ const LayeredHero = ({ text }) => {
 		const handleBreakpointChange = () => {
 			const smallScreen = ["xs", "sm", "md"].includes(breakpoint)
 			const isTargetPage = ["work", "writing"].includes(page)
-			const shouldMinimize = page !== "home" && (isTargetPage || smallScreen)
+			const shouldMinimize = page !== "home" && (isTargetPage || smallScreen || !breakpoint)
 			if (shouldMinimize) {
 				setMinimized(true)
 			} else {

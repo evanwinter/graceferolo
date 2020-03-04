@@ -9,9 +9,7 @@ import OtherWritingItems from "@components/OtherWritingItems"
 class WritingIndex extends React.Component {
 	render() {
 		const siteTitle = get(this, "props.data.site.siteMetadata.title")
-		let posts = get(this, "props.data.allContentfulWritingPost.edges")
-		// TODO: remove - duplicate posts for dev
-		posts = [...posts, ...posts, ...posts]
+		const posts = get(this, "props.data.allContentfulWritingPost.edges")
 
 		return (
 			<>
