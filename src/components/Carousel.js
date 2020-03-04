@@ -41,10 +41,13 @@ const Carousel = ({ items }) => {
 
 	// Hydrate component state with items
 	if (items && carouselItems.length === 0) {
-		// Start with two sets of items
-		setCarouselItems([...items, ...items])
+		if (items.length < 4) {
+			setCarouselItems([...items, ...items, ...items])
+		} else {
+			setCarouselItems([...items, ...items])
+		}
 	}
-	
+
 	// Update container width when window size changes
 	useEffect(() => {
 		const width = document.querySelector(".Carousel--container")?.clientWidth
@@ -52,32 +55,67 @@ const Carousel = ({ items }) => {
 	}, [windowSize.width])
 
 	//Minus 1 for array offset from 0
-	const _length = carouselItems.length - 1
-	const length = items.length - 1
 
-	// console.log("new items length", _length)
-	// console.log("original items length", length)
+	const numOriginalItems = items.length
+	const numCarouselItems = carouselItems.length
 
-	// console.log("index", index)
+	const carouselItemsLength = numCarouselItems - 1
+
+	const batchSize = numOriginalItems
 
 	const handleNext = () => {
-		// console.log(_length)
+		// if the current index is within the second-to-last copy of the items,
+		console.log("Updating to index", index + 1)
+		console.log("Current number of items in the carousel", numCarouselItems)
 
-		// if the current index is within four indexes of the last item, add another batch of items on to the list
-
-		if (index > _length - 4) {
-			setCarouselItems([...carouselItems, ...items])
+		if (numOriginalItems < 3) {
+			// Edge case for when there's two or fewer items
+			if (index === numCarouselItems - numOriginalItems * 2) {
+				console.log("Adding another batch of carousel items")
+				const nextCarouselItems = [...carouselItems, ...items]
+				setCarouselItems(nextCarouselItems)
+			}
+		} else {
+			if (index === numCarouselItems - numOriginalItems - 1) {
+				console.log("Adding another batch of carousel items")
+				const nextCarouselItems = [...carouselItems, ...items]
+				setCarouselItems(nextCarouselItems)
+			}
 		}
 
-		index === _length ? setIndex(0) : setIndex(index + 1)
+		// If at end, wrap back to beginning, else increment by one
+		// Shouldn't be possible though because of endless scroll
+		if (index === numCarouselItems - 1) {
+			setIndex(0)
+		} else {
+			setIndex(index + 1)
+		}
 	}
 
 	const handlePrevious = () => {
-		if (index <= _length - 4 && _length >= items.length * 2.5) {
-			setCarouselItems(carouselItems.slice(0, carouselItems.length - 4))
+		console.log("Updating to index", index - 1)
+		console.log("Current number of items in the carousel", numCarouselItems)
+
+		const padFactor = numOriginalItems < 4 ? 3 : 2
+
+		if (
+			index <= numCarouselItems - numOriginalItems * padFactor - 1 &&
+			numCarouselItems >= numOriginalItems * padFactor
+		) {
+			console.log("Removing a batch of carousel items")
+			const nextCarouselItems = carouselItems.slice(
+				0,
+				numCarouselItems - numOriginalItems,
+			)
+			setCarouselItems(nextCarouselItems)
 		}
 
-		index === 0 ? setIndex(0) : setIndex(index - 1)
+		// If at beginning, stay at beginning, else decrement by one
+		if (index === 0) {
+			setIndex(0)
+		} else {
+			setIndex(index - 1)
+		}
 	}
 
 	const startGlideForward = () => {
@@ -135,8 +173,8 @@ const Carousel = ({ items }) => {
 			</div>
 			<div className="Carousel--container">
 				{carouselItems &&
-					carouselItems.map(({ node }, i) => {
-						return <CarouselItem key={i} item={node} />
+					carouselItems.map((item, i) => {
+						return <CarouselItem key={i} item={item} />
 					})}
 			</div>
 		</div>

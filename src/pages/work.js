@@ -9,7 +9,9 @@ import ArticlePreview from "@components/ArticlePreview"
 class Work extends React.Component {
 	render() {
 		const siteTitle = get(this, "props.data.site.siteMetadata.title")
-		const items = get(this, "props.data.allContentfulWorkSample.edges")
+		const items = get(this, "props.data.allContentfulWorkPage.edges[0].node.workSamples")
+
+		console.log(items)
 
 		return (
 			<>
@@ -29,22 +31,27 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		allContentfulWorkSample(sort: { fields: [createdAt], order: ASC }) {
+		allContentfulWorkPage {
 			edges {
 				node {
 					title
-					subtitle
-					slug
-					intro {
-						intro
-					}
-					mainImage {
-						fluid(maxWidth: 1200, resizingBehavior: SCALE) {
-							...GatsbyContentfulFluid_noBase64
+					workSamples {
+						... on ContentfulWorkSample {
+							title
+							subtitle
+							slug
+							intro {
+								intro
+							}
+							mainImage {
+								fluid(maxWidth: 1200, resizingBehavior: SCALE) {
+									...GatsbyContentfulFluid_noBase64
+								}
+							}
+							body {
+								json
+							}
 						}
-					}
-					body {
-						json
 					}
 				}
 			}
