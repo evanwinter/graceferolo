@@ -17,6 +17,7 @@ const Layout = (props) => {
 
 	useEffect(() => {
 		document.querySelector("body").dataset.currentPage = page
+		document.querySelector(".site-root").dataset.currentPage = page
 	}, [page])
 
 	useEffect(() => {
@@ -24,7 +25,7 @@ const Layout = (props) => {
 	}, [])
 
 	return (
-		<div className={`site-root ${page}`}>
+		<div className={`site-root`} data-current-page={page}>
 			<LayoutContainer>
 				<div className="Layout anim init-fade-in">
 					<div className="Layout--top-right">

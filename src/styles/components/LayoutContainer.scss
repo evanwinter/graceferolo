@@ -157,7 +157,7 @@ $gutter: 2rem;
 }
 
 // All pages go to one-col layout on smaller screens
-.site-root.about {
+.site-root[data-current-page="about"] {
 	@include respond-to(lg) {
 		@include shrink-layered-hero();
 		@include shrink-columns();
@@ -172,15 +172,15 @@ $gutter: 2rem;
 	}
 }
 
-.site-root.home {
+.site-root[data-current-page="home"] {
 	@include respond-to(md) {
 		@include home-layout();
 	}
 }
 
 // Work and Writing pages go to one-col layout at any screen size
-.site-root.work,
-.site-root.writing {
+.site-root[data-current-page="work"],
+.site-root[data-current-page="writing"] {
 	@include one-col-layout();
 	@include minimize-layered-hero();
 }
