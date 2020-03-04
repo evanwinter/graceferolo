@@ -32,6 +32,8 @@ class Animations {
 		anime({
 			...mergedOptions,
 			opacity: 1,
+			duration: 1000,
+			easing: "easeInSine",
 			targets: ".anim.init-fade-in",
 			delay: 750,
 		})

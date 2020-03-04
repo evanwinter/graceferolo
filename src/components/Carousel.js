@@ -34,10 +34,8 @@ import Utils from "@helpers/utilities"
 const Carousel = ({ items }) => {
 	const [carouselItems, setCarouselItems] = useState([])
 	const [index, setIndex] = useState(0)
-	const [containerWidth, setContainerWidth] = useState(0)
+	// const [containerWidth, setContainerWidth] = useState(0)
 	const windowSize = Utils.useWindowSize()
-
-	// const [gliding, setGliding] = useState("paused")
 
 	// Hydrate component state with items
 	if (items && carouselItems.length === 0) {
@@ -49,33 +47,29 @@ const Carousel = ({ items }) => {
 	}
 
 	// Update container width when window size changes
-	useEffect(() => {
-		const width = document.querySelector(".Carousel--container")?.clientWidth
-		setContainerWidth(width)
-	}, [windowSize.width])
+	// useEffect(() => {
+	// 	const width = document.querySelector(".Carousel--container")?.clientWidth
+	// 	setContainerWidth(width)
+	// }, [windowSize.width])
 
 	//Minus 1 for array offset from 0
 
 	const numOriginalItems = items.length
 	const numCarouselItems = carouselItems.length
 
-	const carouselItemsLength = numCarouselItems - 1
-
-	const batchSize = numOriginalItems
-
 	const handleNext = () => {
 		// if the current index is within the second-to-last copy of the items,
-		console.log("Updating to index", index + 1)
-		console.log("Current number of items in the carousel", numCarouselItems)
 
+		// Edge case for when there's two or fewer items
 		if (numOriginalItems < 3) {
-			// Edge case for when there's two or fewer items
+			// If within two batch sizes, add another batch
 			if (index === numCarouselItems - numOriginalItems * 2) {
 				console.log("Adding another batch of carousel items")
 				const nextCarouselItems = [...carouselItems, ...items]
 				setCarouselItems(nextCarouselItems)
 			}
 		} else {
+			// If within one batch size, add another batch
 			if (index === numCarouselItems - numOriginalItems - 1) {
 				console.log("Adding another batch of carousel items")
 				const nextCarouselItems = [...carouselItems, ...items]
@@ -93,16 +87,13 @@ const Carousel = ({ items }) => {
 	}
 
 	const handlePrevious = () => {
-		console.log("Updating to index", index - 1)
-		console.log("Current number of items in the carousel", numCarouselItems)
-
 		const padFactor = numOriginalItems < 4 ? 3 : 2
 
+		// If within the buffer zone, remove a batch
 		if (
 			index <= numCarouselItems - numOriginalItems * padFactor - 1 &&
 			numCarouselItems >= numOriginalItems * padFactor
 		) {
-			console.log("Removing a batch of carousel items")
 			const nextCarouselItems = carouselItems.slice(
 				0,
 				numCarouselItems - numOriginalItems,
@@ -155,26 +146,24 @@ const Carousel = ({ items }) => {
 		<div className="Carousel">
 			<div className="Carousel--navigation">
 				<nav>
-					<div className="nav-left">
-						<button
-							id="previous"
-							onMouseEnter={startGlideBackward}
-							onMouseLeave={stopGlideBackward}
-							onClick={() => handlePrevious()}></button>
-					</div>
-					<div className="nav-right">
-						<button
-							id="next"
-							onMouseEnter={startGlideForward}
-							onMouseLeave={stopGlideForward}
-							onClick={() => handleNext()}></button>
-					</div>
+					<div
+						className="nav-left"
+						onMouseEnter={startGlideBackward}
+						onMouseLeave={stopGlideBackward}
+						onClick={() => handlePrevious()}></div>
+					<div
+						className="nav-right"
+						onMouseEnter={startGlideForward}
+						onMouseLeave={stopGlideForward}
+						onClick={() => handleNext()}></div>
 				</nav>
 			</div>
 			<div className="Carousel--container">
 				{carouselItems &&
 					carouselItems.map((item, i) => {
-						return <CarouselItem key={i} item={item} />
+						return (
+							<CarouselItem key={i} item={item} isOg={i < numOriginalItems} />
+						)
 					})}
 			</div>
 		</div>

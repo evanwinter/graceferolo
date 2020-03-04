@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImg from "gatsby-background-image"
 
-const CarouselItem = ({ item }) => {
+const CarouselItem = ({ item, isOg }) => {
 	return (
-		<Link className="CarouselItem" to={`/work/${item.slug}`}>
+		<Link className="CarouselItem" data-show-mobile={isOg} to={`/work/${item.slug}`}>
 			<div className="CarouselItem--overlay">
 				<h3 className="CarouselItem--title">{item.title}</h3>
 				<p className="CarouselItem--subtitle">{item.subtitle}</p>

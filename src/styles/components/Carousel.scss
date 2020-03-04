@@ -4,13 +4,6 @@ $carousel-height: calc(100vh - 240px);
 	min-width: 100%;
 	height: $carousel-height;
 
-	&:hover {
-		.nav-left,
-		.nav-right {
-			opacity: 1;
-		}
-	}
-
 	// Mobile styles
 	@media (max-width: 600px) {
 		.Carousel--container {
@@ -39,7 +32,13 @@ $carousel-height: calc(100vh - 240px);
 }
 
 .Carousel--container {
-	position: absolute;
+	position: fixed;
+	@media (max-width: 600px) {
+		position: absolute;
+		left: 0;
+	}
+
+	left: 2rem;
 	height: $carousel-height;
 	display: flex;
 	justify-content: flex-start;
@@ -57,14 +56,19 @@ $carousel-height: calc(100vh - 240px);
 	}
 	height: $carousel-height;
 	margin-right: 1rem;
-	background: black;
+
+	&[data-show-mobile="false"] {
+		@media (max-width: 600px) {
+			display: none;
+		}
+	}
 
 	transition: width 300ms ease;
 
 	&:hover {
 		.CarouselItem--image {
 			@media (min-width: 601px) {
-				opacity: 0.3;
+				// opacity: 0.3;
 			}
 		}
 		.CarouselItem--overlay {
@@ -97,6 +101,7 @@ $carousel-height: calc(100vh - 240px);
 		}
 		height: 100%;
 		z-index: 50;
+		background: rgba(#000, 0.5);
 		opacity: 0;
 		padding: 2rem;
 		color: $light;
@@ -118,8 +123,9 @@ $carousel-height: calc(100vh - 240px);
 }
 
 .Carousel--navigation {
-	position: absolute;
-	width: 100%;
+	position: fixed;
+	left: 0rem;
+	width: calc(100% - 0rem);
 	height: $carousel-height;
 	z-index: 50;
 	pointer-events: none;
@@ -141,21 +147,30 @@ $carousel-height: calc(100vh - 240px);
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			padding: 1rem;
+			pointer-events: all;
+			width: 12rem;
+			@include respond-to(lg) {
+				width: 10rem;
+			}
+			@include respond-to(md) {
+				width: 8rem;
+			}
 			opacity: 0;
-			cursor: url("../../static/images/chevron-right.png"), auto;
+			background: $theme-light;
 
-			
+			&:hover {
+				opacity: 0.2;
+			}
 
 			transition: opacity 500ms ease;
 		}
 
 		.nav-left {
-			padding-right: 6rem;
+			cursor: url(../../static/images/chevron-left.png), auto;
 		}
 
 		.nav-right {
-			padding-left: 6rem;
+			cursor: url(../../static/images/chevron-right.png), auto;
 		}
 	}
 
