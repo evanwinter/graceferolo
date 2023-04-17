@@ -50,7 +50,7 @@
 		"dotenv": "^8.0.0",
 		"eslint": "^5.16.0",
 		"eslint-plugin-react": "^7.18.3",
-		"gatsby": "^2.19.28",
+		"gatsby": "^5.8.1",
 		"gatsby-plugin-sass": "^2.1.29",
 		"prettier": "^1.17.0"
 	},
